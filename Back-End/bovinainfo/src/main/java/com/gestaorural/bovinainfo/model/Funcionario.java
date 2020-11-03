@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -15,8 +17,8 @@ public class Funcionario {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
-	
+	private int id;	
+
 	@Column(name = "nome")
 	private String nome;
 	
@@ -28,4 +30,57 @@ public class Funcionario {
 	
 	@Column(name = "telefone")
 	private String telefone;	
+	
+	@ManyToOne
+	@JoinColumn(name = "funcionario_fk_endereco")
+	private Endereco endereco;
+	
+	// Getters and Setters
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public String getCpf() {
+		return cpf;
+	}
+
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
+	}
+
+	public Calendar getData_Nascimento() {
+		return data_Nascimento;
+	}
+
+	public void setData_Nascimento(Calendar data_Nascimento) {
+		this.data_Nascimento = data_Nascimento;
+	}
+
+	public String getTelefone() {
+		return telefone;
+	}
+
+	public void setTelefone(String telefone) {
+		this.telefone = telefone;
+	}
+
+	public Endereco getEndereco() {
+		return endereco;
+	}
+
+	public void setEndereco(Endereco endereco) {
+		this.endereco = endereco;
+	}
 }
