@@ -10,22 +10,22 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "funcionario")
-public class Funcionario {
+@Table(name = "animal")
+public class Animal {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+	private int numero;
 	
-	@Column(name = "nome")
-	private String nome;
+	@Column(name = "status")
+	private String status;
 	
-	@Column(name = "cpf", unique=true)	
-	private String cpf;
+	@Column(name = "raca")
+	private String raca;
 	
-	@Column(name = "data_Nascimento")
-	private Calendar data_Nascimento;
+	@Column(name = "data_nascimento")
+	private Calendar data_nascimento;
 	
-	@Column(name = "telefone")
-	private String telefone;	
+	@Column(name = "descricao_acontecimentos")
+	private String descricao_acontecimentos;
 }

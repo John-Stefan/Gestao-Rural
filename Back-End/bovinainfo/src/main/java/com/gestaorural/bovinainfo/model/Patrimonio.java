@@ -1,7 +1,5 @@
 package com.gestaorural.bovinainfo.model;
 
-import java.util.Calendar;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,22 +8,19 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "funcionario")
-public class Funcionario {
+@Table(name = "patrimonio")
+public class Patrimonio {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
-	@Column(name = "nome")
-	private String nome;
+	@Column(name = "descricao")
+	private String descricao;
 	
-	@Column(name = "cpf", unique=true)	
-	private String cpf;
+	@Column(name = "tamanho_patrimonio")
+	private double tamanho_patrimonio;
 	
-	@Column(name = "data_Nascimento")
-	private Calendar data_Nascimento;
-	
-	@Column(name = "telefone")
-	private String telefone;	
+	@Column(name = "nome_dono")
+	private String nome_dono;
 }

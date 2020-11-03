@@ -13,7 +13,7 @@ public class Endereco {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id;
+	private int id;
 	
 	@Column(name = "cep", unique=true)
 	private String cep;
@@ -25,7 +25,7 @@ public class Endereco {
 	private String complemento;
 	
 	@Column(name = "numero")
-	private long numero;
+	private int numero;
 	
 	@Column(name = "logradouro")
 	private String logradouro;

@@ -10,22 +10,20 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "funcionario")
-public class Funcionario {
+@Table(name = "producao")
+public class Producao {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
-	@Column(name = "nome")
-	private String nome;
+	@Column(name = "data")
+	private Calendar data;
 	
-	@Column(name = "cpf", unique=true)	
-	private String cpf;
+	@Column(name = "temperatura")
+	private int temperatura;
 	
-	@Column(name = "data_Nascimento")
-	private Calendar data_Nascimento;
-	
-	@Column(name = "telefone")
-	private String telefone;	
+	@Column(name = "umidade")
+	private int umidade;
 }
+
