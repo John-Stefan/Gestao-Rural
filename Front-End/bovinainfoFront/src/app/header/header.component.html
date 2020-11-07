@@ -1,0 +1,55 @@
+<nav class="navbar navbar-fixed-top navbar-expand-lg navbar-dark bg-gradient-sucess">
+    <div class="container">
+        <!--Logo-->
+        <a class="navbar-brand h1 mb-0" routerLink="/home">Bovina Info</a>
+        
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSite">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!--Menu esquerdo-->
+        <div class="collapse navbar-collapse" id="navbarSite">
+            <ul class="navbar-nav mr auto">
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/home">Inicio</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="#">Perfil</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="#">Controle de Produção</a>
+                </li>
+            </ul>
+
+            <!--Menu direito-->
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" routerLink="#" data-toggle="dropdown" id="navDropdownCadastros">
+                        Cadastros
+                    </a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" routerLink="/cadastroFuncionarios">Funcionarios</a>
+                        <a class="dropdown-item" routerLink="/cadastroAnimais">Animais</a>
+                        <a class="dropdown-item" routerLink="/cadastroPatrimonios">Patrimonios</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" routerLink="" data-toggle="dropdown" id="navDropdownEmissoes">
+                        Emissões
+                    </a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" routerLink="/emissaoFuncionarios">Funcionarios</a>
+                        <a class="dropdown-item" routerLink="/emissaoAnimais">Animais</a>
+                        <a class="dropdown-item" routerLink="/emissaoPatrimonios">Patrimonios</a>
+                    </div>
+                </li>
+            </ul>
+
+            <!--Barra de endereços-->
+            <form class="form-inline">
+                <input class="form-control ml-4 mr-2" type="search" placeholder="Buscar...">
+                <button class="btn btn-outline-light" type="submit">Ok</button>
+            </form>
+        </div>
+    </div>
+</nav>
