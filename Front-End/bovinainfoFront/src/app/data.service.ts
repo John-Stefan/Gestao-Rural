@@ -6,18 +6,18 @@ import { Injectable } from '@angular/core';
 export class DataService {
 
   contacts = [
-    { id: 1, name: "João da Silva", description: "Cliente Vip", email: "c001@email.com" },
-    { id: 2, name: "Maria das Dores", description: "Entrou em contato pelo app", email: "c002@email.com" },
-    { id: 3, name: "Pedro Pedreira", description: "Pediu cancelamento", email: "c003@email.com" },
-    { id: 4, name: "Morgana Adams", description: "Deseja comprar uma casa", email: "c004@email.com" }
+    { id: 1, nome: "João da Silva", cpf: "21223225200", data_nascimento: 08/10/2000, telefone: "62982142356",  cep: "74256985", rua: "Rua BM50A", complemento: "Qd43 Lt92", logradouro: "Rua"},
+    { id: 2, nome: "Alana da Silva", cpf: "74598632500", data_nascimento: 10/11/1985, telefone: "62985643251",  cep: "85698523", rua: "Rua RL25B", complemento: "Qd99 Lt50", logradouro: "Rua" },
+    { id: 3, nome: "Matheus Marques", cpf: "30245169800", data_nascimento: 22/5/1992, telefone: "62996587421",  cep: "84365298", rua: "Rua RC5", complemento: "Qd15 Lt15", logradouro: "Rua" },
+    { id: 4, nome: "Sara Marques", cpf: "01236598566", data_nascimento: 19/6/1995, telefone: "62997548632",  cep: "21365985", rua: "Rua BL85", complemento: "Qd25 Lt36", logradouro: "Rua" }
   ];
 
   constructor() { }
 
-  public getContacts(): Array<{ id, name, description, email }> {
+  public getContacts(): Array<{ id, nome, cpf, data_nascimento, telefone, cep, rua, complemento, logradouro }> {
     return this.contacts;
   }
-  public createContact(contact: { id, name, description, email }) {
+  public createContact(contact: { id, nome, cpf, data_nascimento, telefone, cep, rua, complemento, logradouro }) {
     this.contacts.push(contact);
   }
 }
