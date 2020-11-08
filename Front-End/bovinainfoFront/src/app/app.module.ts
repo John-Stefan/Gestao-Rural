@@ -16,7 +16,7 @@ import { FooterComponent } from './footer/footer.component';
     CadastroFuncionarioComponent,
     EmissaoFuncionarioComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent      
   ],
   imports: [
     BrowserModule,
