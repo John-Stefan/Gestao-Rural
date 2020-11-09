@@ -3,6 +3,16 @@
     margin-right: 0.6rem;
   }
 
+.btn {
+    margin-top: 25px;
+}
+
   #Titulo {
     margin-top: 5.50rem  !important; 
   }
+
+  #labelBase {
+      margin-top: 15px;
+  }
+
+  
