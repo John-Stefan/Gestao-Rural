@@ -8,21 +8,28 @@ import { CadastroFuncionarioComponent } from './cadastro-funcionario/cadastro-fu
 import { EmissaoFuncionarioComponent } from './emissao-funcionario/emissao-funcionario.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [
+  declarations: [    
     AppComponent,
     HomeComponent,
     CadastroFuncionarioComponent,
     EmissaoFuncionarioComponent,
     HeaderComponent,
-    FooterComponent      
+    FooterComponent         
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    CommonModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }

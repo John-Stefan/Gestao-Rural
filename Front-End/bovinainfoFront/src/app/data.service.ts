@@ -17,7 +17,7 @@ export class DataService {
   public getContacts(): Array<{ id, nome, cpf, data_nascimento, telefone, cep, rua, complemento, logradouro }> {
     return this.funcionarios;
   }
-  public createContact(contact: { id, nome, cpf, data_nascimento, telefone, cep, rua, complemento, logradouro }) {
-    this.funcionarios.push(contact);
+  public createContact(funcionarios: { id, nome, cpf, data_nascimento, telefone, cep, rua, complemento, logradouro }) {
+    this.funcionarios.push(funcionarios);
   }
 }
