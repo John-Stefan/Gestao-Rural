@@ -2,6 +2,7 @@ package com.gestaorural.bovinainfo.model;
 
 import java.util.Calendar;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -31,8 +32,7 @@ public class Funcionario {
 	@Column(name = "telefone")
 	private String telefone;	
 	
-	@ManyToOne
-	@JoinColumn(name = "funcionario_fk_endereco")
+	@ManyToOne(optional = false, cascade = CascadeType.ALL)
 	private Endereco endereco;
 	
 	// Getters and Setters

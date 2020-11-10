@@ -9,4 +9,5 @@ import com.gestaorural.bovinainfo.model.Endereco;
 public interface EnderecoPersistencia extends JpaRepository<Endereco, Long>{
 
 	Endereco findById(int id);
+	Endereco findByCep(String cep);
 }
