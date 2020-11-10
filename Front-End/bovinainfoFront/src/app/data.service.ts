@@ -1,4 +1,6 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -12,12 +14,12 @@ export class DataService {
     { id: 4, nome: "Sara Marques", cpf: "01236598566", data_nascimento: "19/6/1995", telefone: "62997548632",  cep: "21365985", rua: "Rua BL85", complemento: "Qd25 Lt36", logradouro: "Rua" }
   ];
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
-  public getContacts(): Array<{ id, nome, cpf, data_nascimento, telefone, cep, rua, complemento, logradouro }> {
-    return this.funcionarios;
+  public getFuncionario(): Observable<any> {
+    return this.http.get("http://localhost:8080/funcionario");
   }
-  public createContact(funcionarios: { id, nome, cpf, data_nascimento, telefone, cep, rua, complemento, logradouro }) {
+  public createFuncionario(funcionarios: { id, nome, cpf, data_nascimento, telefone, cep, rua, complemento, logradouro }) {
     this.funcionarios.push(funcionarios);
   }
 }

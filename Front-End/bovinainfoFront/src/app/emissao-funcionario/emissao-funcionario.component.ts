@@ -14,7 +14,7 @@ export class EmissaoFuncionarioComponent implements OnInit {
   constructor(private dataService: DataService) { }
 
   ngOnInit(): void {
-    this.funcionarios = this.dataService.getContacts();
+    this.dataService.getFuncionario().subscribe(resultado => (this.funcionarios = resultado));
   }
 
   public selectFuncionarios(funcionarios) {

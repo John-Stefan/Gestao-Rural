@@ -19,7 +19,7 @@ import com.gestaorural.bovinainfo.persistencia.FuncionarioPersistencia;
 
 @SpringBootApplication
 @RestController
-@RequestMapping("/funcionarios")
+@RequestMapping("/funcionario")
 public class FuncionarioController {
 
 	@Autowired
