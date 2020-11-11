@@ -18,8 +18,8 @@ export class CadastroFuncionarioComponent implements OnInit {
 
   createFuncionario(){
     console.log(this.funcionario);
-    this.dataService.createFuncionario(this.funcionario);
+    this.dataService.createFuncionario(this.funcionario).subscribe(resultado => 
+      {this.funcionario = { nome: null, cpf: null, data_nascimento: "", telefone: "", endereco: {cep: "", rua: "", complemento: "", logradouro: ""}}});
     //this.funcionario = { nome: null, cpf: null, data_nascimento: "", telefone: "", endereco: {cep: "", rua: "", complemento: "", logradouro: ""}};
   }
-
 }
