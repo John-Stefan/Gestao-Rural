@@ -8,8 +8,8 @@ import { DataService } from '../data.service';
 })
 export class EmissaoFuncionarioComponent implements OnInit {
 
-  funcionarios;
-  selectedFuncionarios;
+  funcionarios;  
+  selectedFuncionario;
 
   constructor(private dataService: DataService) { }
 
@@ -18,7 +18,6 @@ export class EmissaoFuncionarioComponent implements OnInit {
   }
 
   public selectFuncionarios(funcionarios) {
-    this.selectFuncionarios = funcionarios;
+    this.selectedFuncionario = funcionarios;
   }
-
 }

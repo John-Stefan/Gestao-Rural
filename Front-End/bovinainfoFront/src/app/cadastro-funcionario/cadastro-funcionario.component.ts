@@ -8,8 +8,8 @@ import { DataService } from '../data.service';
 })
 export class CadastroFuncionarioComponent implements OnInit {
 
-  funcionario: { id, nome, cpf, data_nascimento, telefone, cep, rua, complemento, logradouro } = 
-  { id: null, nome: null, cpf: null, data_nascimento: "", telefone: "", cep: "", rua: "", complemento: "", logradouro: "" };
+  funcionario: { nome, cpf, data_nascimento, telefone, endereco } = 
+  { nome: null, cpf: null, data_nascimento: "", telefone: "", endereco: {cep: "", rua: "", complemento: "", logradouro: ""}};
 
   constructor(public dataService: DataService) { }
 
@@ -19,7 +19,7 @@ export class CadastroFuncionarioComponent implements OnInit {
   createFuncionario(){
     console.log(this.funcionario);
     this.dataService.createFuncionario(this.funcionario);
-    this.funcionario = { id: null, nome: null, cpf: null, data_nascimento: "", telefone: "", cep: "", rua: "", complemento: "", logradouro: "" };
+    //this.funcionario = { nome: null, cpf: null, data_nascimento: "", telefone: "", endereco: {cep: "", rua: "", complemento: "", logradouro: ""}};
   }
 
 }

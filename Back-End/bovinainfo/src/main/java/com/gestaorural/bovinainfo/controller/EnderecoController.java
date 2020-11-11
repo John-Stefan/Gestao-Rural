@@ -17,7 +17,7 @@ import com.gestaorural.bovinainfo.persistencia.EnderecoPersistencia;
 
 @SpringBootApplication
 @RestController
-@RequestMapping("/enderecos")
+@RequestMapping("/endereco")
 public class EnderecoController {
 
 	@Autowired

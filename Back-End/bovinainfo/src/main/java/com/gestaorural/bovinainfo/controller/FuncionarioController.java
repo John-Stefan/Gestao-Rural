@@ -12,9 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.gestaorural.bovinainfo.model.Endereco;
 import com.gestaorural.bovinainfo.model.Funcionario;
-import com.gestaorural.bovinainfo.persistencia.EnderecoPersistencia;
 import com.gestaorural.bovinainfo.persistencia.FuncionarioPersistencia;
 
 @SpringBootApplication
@@ -24,9 +22,6 @@ public class FuncionarioController {
 
 	@Autowired
 	private FuncionarioPersistencia funcionarioPersistencia;
-	
-	@Autowired
-	private EnderecoPersistencia enderecoPersistencia;
 	
 	@GetMapping
 	public List<Funcionario> getAll(){
@@ -44,12 +39,7 @@ public class FuncionarioController {
 	}
 	
 	@PostMapping
-	public void post(@RequestBody Funcionario funcionario) {
-		Endereco endereco = enderecoPersistencia.findByCep(funcionario.getEndereco().getCep());
-		if(endereco != null) {
-			funcionario.setEndereco(endereco);
-		}
-		
+	public void post(@RequestBody Funcionario funcionario) {			
 		funcionarioPersistencia.save(funcionario);
 	}
 	
