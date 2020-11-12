@@ -15,7 +15,7 @@ public class Animal {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int numero;
+	private Long numero;
 	
 	@Column(name = "status")
 	private String status;
