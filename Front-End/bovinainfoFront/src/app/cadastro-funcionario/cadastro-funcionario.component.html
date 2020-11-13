@@ -17,8 +17,7 @@
                         <small id="cpfHelp" class="form-text text-muted">Digite o CPF do funcionario</small>
 
                         <label for="data_nascimento" id="labelBase">Data de nascimento</label>
-                        <input [(ngModel)]="funcionario.data_nascimento" type="text" name="data_nascimento" class="form-control" id="data_nascimento" aria-describedby="data_nascimentoHelp" placeHolder="Digite a Data de Nascimento">
-                        <small id="data_nascimentoHelp" class="form-text text-muted">Digite a Data de nascimento do funcionario</small>
+                        <input [(ngModel)]="funcionario.data_nascimento" id="data_nascimento" name="data_nascimento" placeholder="DD/MM/AAAA" step="1" class="form-control input-md" type="date" maxlength="10"/>                        
 
                         <label for="telefone" id="labelBase">Telefone</label>
                         <input [(ngModel)]="funcionario.telefone" type="text" name="telefone" class="form-control" id="telefone" aria-describeby="telefoneHelp" placeHolder="Digite o telefone">

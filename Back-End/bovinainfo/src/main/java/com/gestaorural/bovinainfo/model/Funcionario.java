@@ -10,6 +10,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 @Entity
 @Table(name = "funcionario")
@@ -25,8 +29,10 @@ public class Funcionario {
 	@Column(name = "cpf", unique=true)	
 	private String cpf;
 	
-	@Column(name = "data_Nascimento")
-	private Calendar data_Nascimento;
+	@Column(name = "data_nascimento")
+	@Temporal(TemporalType.DATE)
+	@JsonFormat(pattern="yyyy-MM-dd")
+	private Calendar data_nascimento;
 	
 	@Column(name = "telefone")
 	private String telefone;	
@@ -60,11 +66,11 @@ public class Funcionario {
 	}
 
 	public Calendar getData_Nascimento() {
-		return data_Nascimento;
+		return data_nascimento;
 	}
 
 	public void setData_Nascimento(Calendar data_Nascimento) {
-		this.data_Nascimento = data_Nascimento;
+		this.data_nascimento = data_Nascimento;
 	}
 
 	public String getTelefone() {

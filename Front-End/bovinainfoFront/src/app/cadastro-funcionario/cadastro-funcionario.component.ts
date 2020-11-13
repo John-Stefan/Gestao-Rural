@@ -16,8 +16,7 @@ export class CadastroFuncionarioComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  createFuncionario(){
-    console.log(this.funcionario);
+  createFuncionario(){    
     this.dataService.createFuncionario(this.funcionario).subscribe(resultado => 
       {this.funcionario = { nome: null, cpf: null, data_nascimento: "", telefone: "", endereco: {cep: "", rua: "", complemento: "",  numero: "", logradouro: ""}}});    
   }
