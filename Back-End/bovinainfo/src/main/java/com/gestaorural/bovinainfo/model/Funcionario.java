@@ -29,6 +29,8 @@ public class Funcionario {
 	@Column(name = "cpf", unique=true)	
 	private String cpf;
 	
+	//email
+	
 	@Column(name = "data_nascimento")
 	@Temporal(TemporalType.DATE)
 	@JsonFormat(pattern="yyyy-MM-dd")
