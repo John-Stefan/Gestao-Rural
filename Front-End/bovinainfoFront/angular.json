@@ -24,7 +24,11 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "node_modules/primeng/resources/themes/arya-green/theme.css",
+              "node_modules/primeng/resources/primeng.min.css",
+              "node_modules/primeicons/primeicons.css",
+              "./node_modules/primeflex/primeflex.css"
             ],
             "scripts": []
           },
@@ -119,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "bovinainfoFront"
+    }
+  },
+  "defaultProject": "bovinainfoFront",
+  "cli": {
+    "analytics": "02172c8f-dec5-4f26-9fde-273d9586e944"
+  }
 }
