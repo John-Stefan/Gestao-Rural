@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
+import { MenubarModule } from 'primeng/menubar';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -15,12 +16,13 @@ import { FooterComponent } from './footer/footer.component';
     CadastroFuncionarioComponent,
     EmissaoFuncionarioComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule, 
-    BrowserAnimationsModule
+    BrowserAnimationsModule, 
+    MenubarModule
   ],
   providers: [],
   bootstrap: [AppComponent]
