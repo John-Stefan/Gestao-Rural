@@ -1,3 +1,4 @@
+import { style } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
 import {MenuItem} from 'primeng/api';
 
@@ -10,20 +11,22 @@ export class HeaderComponent implements OnInit {
 
   constructor() { }
 
-  items: MenuItem[];
+  items: MenuItem[];  
 
-  ngOnInit(): void {
+  ngOnInit(): void {   
+
     this.items = [
       {
-        label: 'Inicio'        
+        label: 'Inicio',
+        routerLink: 'home'              
       },
       {
         label: 'Perfil',
-        icon: 'pi pi-user'
+        icon: 'pi pi-user'         
       },
       {
         label: 'Controle de Produção',
-        icon: 'pi pi-chart-bar'
+        icon: 'pi pi-chart-bar'        
       },
       {
         label: 'Cadastros',
@@ -44,6 +47,7 @@ export class HeaderComponent implements OnInit {
       {
         label: 'Emissões',
         icon: 'pi pi-list',
+        
         items:[
           {
             label: 'Funcionarios'
