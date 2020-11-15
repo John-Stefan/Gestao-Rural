@@ -9,6 +9,9 @@ import { CadastroFuncionarioComponent } from './cadastro-funcionario/cadastro-fu
 import { EmissaoFuncionarioComponent } from './emissao-funcionario/emissao-funcionario.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
+import { InputTextModule } from 'primeng/inputtext';
+import { ButtonModule } from 'primeng/button';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -16,13 +19,16 @@ import { FooterComponent } from './footer/footer.component';
     CadastroFuncionarioComponent,
     EmissaoFuncionarioComponent,
     HeaderComponent,
-    FooterComponent    
+    FooterComponent,
+    HomeComponent    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule, 
     BrowserAnimationsModule, 
-    MenubarModule
+    MenubarModule,
+    InputTextModule,
+    ButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
