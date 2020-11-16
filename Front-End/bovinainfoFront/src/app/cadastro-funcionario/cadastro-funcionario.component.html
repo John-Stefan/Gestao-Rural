@@ -2,20 +2,58 @@
     <h1><i id="IconTitle" class="pi pi-user"></i>Cadastro de Funcionario</h1>
 </div>
 
-<div class="p-fluid p-grid p-formgrid">
-    <div class="p-field p-col-12 p-md-6">
+<div class="p-fluid p-grid p-formgrid" id="InputTop">
+    <div class="p-field p-col-12 p-sm-12 p-md-6">
         <label id="labelInput">Nome</label>
-        <input type="text" placeholder="Digite o nome" pInputText>
+        <input class="p-inputtext-lg" type="text" placeholder="Digite o nome" pInputText>
     </div>
 
-    <div class="p-field p-col-12 p-md-3">
+    <div class="p-field p-col-12 p-sm-6 p-md-3">
         <label id="labelInput">CPF</label>
-        <p-inputMask mask="999.999.999-99" placeholder="Digite o CPF"></p-inputMask>
+        <p-inputMask class="p-inputtext-lg" mask="999.999.999-99" placeholder="___.___.___-__"></p-inputMask>
     </div>
 
-    <div class="p-field p-col-12 p-md-3">
+    <div class="p-field p-col-12 p-sm-6 p-md-3">
         <label id="labelInput">Data de Nascimento</label>
-        <p-calendar [monthNavigator]="true" [yearNavigator]="true" yearRange="1940:2050"
-            placeholder="Data de Nascimento"></p-calendar>
+        <p-calendar class="p-inputtext-lg" dateFormat="dd/mm/yy" [locale]="calendarioBr" [monthNavigator]="true" [yearNavigator]="true" yearRange="1940:2050"
+            placeholder="dd/mm/aaaa"></p-calendar>
     </div>
+</div>
+
+<div class="p-fluid p-grid p-formgrid" id="InputBotton">
+    <div class="p-field p-col-12 p-sm-12 p-md-6">
+        <label id="labelInput">E-Mail</label>
+        <input class="p-inputtext-lg" type="text" placeholder="Digite o e-mail" pInputText>
+    </div>
+
+    <div class="p-field p-col-12 p-sm-6 p-md-3">
+        <label id="labelInput">Telefone</label>
+        <p-inputMask class="p-inputtext-lg" mask="(99)99999-9999" placeholder="Digite o telefone"></p-inputMask>
+    </div>
+
+    <div class="p-field p-col-12 p-sm-6 p-md-3">
+        <label id="labelInput">CEP</label>
+        <p-inputMask class="p-inputtext-lg" mask="99999-999" placeholder="_____-___"></p-inputMask>
+    </div>
+</div>
+
+<div class="p-fluid p-grid p-formgrid" id="InputBotton">
+    <div class="p-field p-col-12 p-sm-12 p-md-6">
+        <label id="labelInput">Logradouro</label>
+        <input class="p-inputtext-lg" type="text" placeholder="Digite o logradouro" pInputText>
+    </div>
+
+    <div class="p-field p-col-12 p-sm-6 p-md-3">
+        <label id="labelInput">Complemento</label>
+        <input class="p-inputtext-lg" type="text" placeholder="Digite o complemento" pInputText>
+    </div>
+
+    <div class="p-field p-col-12 p-sm-6 p-md-3">
+        <label id="labelInput">Numero</label>
+        <p-inputNumber class="p-inputtext-lg" mode="decimal" [showButtons]="true" [min]="0" [max]="100"></p-inputNumber>
+    </div>
+</div>
+
+<div class="row">
+    <p-button label="Salvar" icon="pi pi-check" iconPos="left"></p-button>
 </div>

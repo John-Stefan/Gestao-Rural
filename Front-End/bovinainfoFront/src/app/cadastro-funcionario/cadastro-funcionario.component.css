@@ -11,4 +11,13 @@
 
 #labelInput {
     color: rgb(235, 235, 235);
+    font-size: 20px;    
+}
+
+#InputTop {
+    margin-top: 40px;
+}
+
+#InputBotton {
+    margin-top: 15px;
 }

@@ -16,10 +16,7 @@ public class Endereco {
 	private Long id;	
 
 	@Column(name = "cep", unique=true)
-	private String cep;
-	
-	@Column(name = "rua")
-	private String rua;
+	private String cep;	
 	
 	@Column(name = "complemento")
 	private String complemento;
@@ -44,15 +41,7 @@ public class Endereco {
 
 	public void setCep(String cep) {
 		this.cep = cep;
-	}
-
-	public String getRua() {
-		return rua;
-	}
-
-	public void setRua(String rua) {
-		this.rua = rua;
-	}
+	}	
 
 	public String getComplemento() {
 		return complemento;
