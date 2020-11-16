@@ -16,8 +16,8 @@ import javax.persistence.TemporalType;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 @Entity
-@Table(name = "funcionario")
-public class Funcionario {
+@Table(name = "pessoa")
+public class Pessoa {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -29,11 +29,12 @@ public class Funcionario {
 	@Column(name = "cpf", unique=true)	
 	private String cpf;
 	
-	//email
-	
+	@Column(name = "email", unique=true)
+	private String email;	
+
 	@Column(name = "data_nascimento")
 	@Temporal(TemporalType.DATE)
-	@JsonFormat(pattern="yyyy-MM-dd")
+	@JsonFormat(pattern="dd/MM/yyyy")
 	private Calendar data_nascimento;
 	
 	@Column(name = "telefone")
@@ -89,5 +90,13 @@ public class Funcionario {
 
 	public void setEndereco(Endereco endereco) {
 		this.endereco = endereco;
+	}
+	
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 }

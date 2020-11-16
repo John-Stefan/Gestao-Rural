@@ -12,39 +12,39 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.gestaorural.bovinainfo.model.Funcionario;
-import com.gestaorural.bovinainfo.persistencia.FuncionarioPersistencia;
+import com.gestaorural.bovinainfo.model.Pessoa;
+import com.gestaorural.bovinainfo.persistencia.PessoaPersistencia;
 
 @SpringBootApplication
 @RestController
-@RequestMapping("/funcionario")
-public class FuncionarioController {
+@RequestMapping("/pessoa")
+public class PessoaController {
 
 	@Autowired
-	private FuncionarioPersistencia funcionarioPersistencia;
+	private PessoaPersistencia pessoaPersistencia;
 	
 	@GetMapping
-	public List<Funcionario> getAll(){
-		return funcionarioPersistencia.findAll();
+	public List<Pessoa> getAll(){
+		return pessoaPersistencia.findAll();
 	}
 	
 	@GetMapping("/{cpf}")
-	public Funcionario getByCpf(@PathVariable String cpf) {
-		return funcionarioPersistencia.findByCpf(cpf);
+	public Pessoa getByCpf(@PathVariable String cpf) {
+		return pessoaPersistencia.findByCpf(cpf);
 	}
 	
 	@GetMapping("/cpf_identico_verificacao/{cpf}")
 	public boolean verificarCpfIdentico(@PathVariable String cpf) {
-		return funcionarioPersistencia.existsByCpf(cpf);
+		return pessoaPersistencia.existsByCpf(cpf);
 	}
 	
 	@PostMapping
-	public void post(@RequestBody Funcionario funcionario) {			
-		funcionarioPersistencia.save(funcionario);
+	public void post(@RequestBody Pessoa funcionario) {			
+		pessoaPersistencia.save(funcionario);
 	}
 	
 	@DeleteMapping("/{id}")
 	public void delete(@PathVariable Long id) {
-		funcionarioPersistencia.deleteById(id);
+		pessoaPersistencia.deleteById(id);
 	}
 }
