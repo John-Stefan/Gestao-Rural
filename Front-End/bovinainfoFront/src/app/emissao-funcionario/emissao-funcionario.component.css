@@ -1,0 +1,13 @@
+#Title {
+    color: rgb(241, 241, 241);
+}
+
+#IconTitle {
+    font-size: 1.1rem;
+    margin-right: 8px;
+    color: rgb(50, 255, 50);
+}
+
+.card {
+    margin-top: 25px;
+}

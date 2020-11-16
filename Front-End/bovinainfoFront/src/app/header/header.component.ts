@@ -50,7 +50,8 @@ export class HeaderComponent implements OnInit {
         
         items:[
           {
-            label: 'Funcionarios'
+            label: 'Funcionarios',
+            routerLink: 'emissao-funcionario'
           },
           {
             label: 'Patrimonios'

@@ -1,1 +1,13 @@
-<p>emissao-funcionario works!</p>
+<div class="card">
+    <p-table #dt [rows]="5" [paginator]="true" [rowHover]="true" [showCurrentPageReport]="true">
+        <ng-template pTemplate="caption">
+            <div class="p-d-flex p-ai-center p-jc-between">
+                <h3 class="p-m-0" id="Title"><i id="IconTitle" class="pi pi-user"></i>Emissão de Funcionarios</h3>
+                <span class="p-input-icon-left">
+                    <i class="pi pi-search"></i>
+                    <input pInputText type="text" placeholder="Search..." />
+                </span>
+            </div>
+        </ng-template>
+    </p-table>
+</div>
