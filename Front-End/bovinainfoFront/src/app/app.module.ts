@@ -2,6 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { MenubarModule } from 'primeng/menubar';
+import { InputMaskModule } from 'primeng/inputmask';
+import { CalendarModule } from 'primeng/calendar';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -28,7 +30,9 @@ import { HomeComponent } from './home/home.component';
     BrowserAnimationsModule, 
     MenubarModule,
     InputTextModule,
-    ButtonModule
+    ButtonModule,
+    InputMaskModule,
+    CalendarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

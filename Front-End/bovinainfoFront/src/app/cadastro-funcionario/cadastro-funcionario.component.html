@@ -1,10 +1,21 @@
 <div class="row" id="Title">
-    <h1><icon id="IconTitle" class="pi pi-user"></icon>Cadastro de Funcionario</h1>
+    <h1><i id="IconTitle" class="pi pi-user"></i>Cadastro de Funcionario</h1>
 </div>
 
-<div class="row">
-    <span class="p-float-label">
-        <input id="float-input" type="text" pInputText>
-        <label for="float-input">Nome</label>
-    </span>
+<div class="p-fluid p-grid p-formgrid">
+    <div class="p-field p-col-12 p-md-6">
+        <label id="labelInput">Nome</label>
+        <input type="text" placeholder="Digite o nome" pInputText>
+    </div>
+
+    <div class="p-field p-col-12 p-md-3">
+        <label id="labelInput">CPF</label>
+        <p-inputMask mask="999.999.999-99" placeholder="Digite o CPF"></p-inputMask>
+    </div>
+
+    <div class="p-field p-col-12 p-md-3">
+        <label id="labelInput">Data de Nascimento</label>
+        <p-calendar [monthNavigator]="true" [yearNavigator]="true" yearRange="1940:2050"
+            placeholder="Data de Nascimento"></p-calendar>
+    </div>
 </div>

@@ -22,7 +22,7 @@ export class HeaderComponent implements OnInit {
       },
       {
         label: 'Perfil',
-        icon: 'pi pi-user'         
+        icon: 'pi pi-user'                
       },
       {
         label: 'Controle de Produção',
