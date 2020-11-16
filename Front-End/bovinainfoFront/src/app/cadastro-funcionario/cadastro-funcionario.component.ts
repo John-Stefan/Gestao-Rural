@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FuncionarioService } from '../funcionario.service';
 
 @Component({
   selector: 'app-cadastro-funcionario',
@@ -7,9 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CadastroFuncionarioComponent implements OnInit {
 
-  constructor() { }
+  constructor(public funcionarioService : FuncionarioService) { }
 
   calendarioBr: any;
+  funcionario: { nome, cpf, data_nascimento, telefone, email, endereco } =
+  { nome: null, cpf: null, data_nascimento: "", telefone: "", email: "", endereco: { cep: null, logradouro: "", complemento: "", numero: "" }};
 
   ngOnInit(): void {     
     this.calendarioBr = {firstDayOfWeek: 0,
@@ -19,7 +22,16 @@ export class CadastroFuncionarioComponent implements OnInit {
       monthNames: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho',
         'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
       monthNamesShort: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'],
-      today: 'Hoje'
+      today: 'Hoje',
     };
+  }
+
+  setFuncionario(){
+    this.funcionarioService.setFuncionario(this.funcionario).subscribe(resultado => 
+      {this.funcionario = { nome: null, cpf: null, data_nascimento: "", telefone: "", email: "", endereco: { cep: null, logradouro: "", complemento: "", numero: "" }}});
+  }
+
+  apagarFormulario(){
+    this.funcionario = { nome: null, cpf: null, data_nascimento: "", telefone: "", email: "", endereco: { cep: null, logradouro: "", complemento: "", numero: "" }};
   }
 }

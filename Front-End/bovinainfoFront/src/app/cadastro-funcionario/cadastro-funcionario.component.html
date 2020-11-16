@@ -5,17 +5,17 @@
 <div class="p-fluid p-grid p-formgrid" id="InputTop">
     <div class="p-field p-col-12 p-sm-12 p-md-6">
         <label id="labelInput">Nome</label>
-        <input class="p-inputtext-lg" type="text" placeholder="Digite o nome" pInputText>
+        <input [(ngModel)]="funcionario.nome" class="p-inputtext-lg" type="text" placeholder="Digite o nome" pInputText>
     </div>
 
     <div class="p-field p-col-12 p-sm-6 p-md-3">
         <label id="labelInput">CPF</label>
-        <p-inputMask class="p-inputtext-lg" mask="999.999.999-99" placeholder="___.___.___-__"></p-inputMask>
+        <p-inputMask [(ngModel)]="funcionario.cpf" class="p-inputtext-lg" mask="999.999.999-99" placeholder="___.___.___-__"></p-inputMask>
     </div>
 
     <div class="p-field p-col-12 p-sm-6 p-md-3">
         <label id="labelInput">Data de Nascimento</label>
-        <p-calendar class="p-inputtext-lg" dateFormat="dd/mm/yy" [locale]="calendarioBr" [monthNavigator]="true" [yearNavigator]="true" yearRange="1940:2050"
+        <p-calendar [(ngModel)]="funcionario.data_nascimento" class="p-inputtext-lg" dateFormat="dd/mm/yy" [locale]="calendarioBr" [monthNavigator]="true" [yearNavigator]="true" yearRange="1940:2050"
             placeholder="dd/mm/aaaa"></p-calendar>
     </div>
 </div>
@@ -23,38 +23,38 @@
 <div class="p-fluid p-grid p-formgrid" id="InputBotton">
     <div class="p-field p-col-12 p-sm-12 p-md-6">
         <label id="labelInput">E-Mail</label>
-        <input class="p-inputtext-lg" type="text" placeholder="Digite o e-mail" pInputText>
+        <input [(ngModel)]="funcionario.email" class="p-inputtext-lg" type="text" placeholder="Digite o e-mail" pInputText>
     </div>
 
     <div class="p-field p-col-12 p-sm-6 p-md-3">
         <label id="labelInput">Telefone</label>
-        <p-inputMask class="p-inputtext-lg" mask="(99)99999-9999" placeholder="Digite o telefone"></p-inputMask>
+        <p-inputMask [(ngModel)]="funcionario.telefone" class="p-inputtext-lg" mask="(99)99999-9999" placeholder="Digite o telefone"></p-inputMask>
     </div>
 
     <div class="p-field p-col-12 p-sm-6 p-md-3">
         <label id="labelInput">CEP</label>
-        <p-inputMask class="p-inputtext-lg" mask="99999-999" placeholder="_____-___"></p-inputMask>
+        <p-inputMask [(ngModel)]="funcionario.endereco.cep" class="p-inputtext-lg" mask="99999-999" placeholder="_____-___"></p-inputMask>
     </div>
 </div>
 
 <div class="p-fluid p-grid p-formgrid" id="InputBotton">
     <div class="p-field p-col-12 p-sm-12 p-md-6">
         <label id="labelInput">Logradouro</label>
-        <input class="p-inputtext-lg" type="text" placeholder="Digite o logradouro" pInputText>
+        <input [(ngModel)]="funcionario.endereco.logradouro" class="p-inputtext-lg" type="text" placeholder="Digite o logradouro" pInputText>
     </div>
 
     <div class="p-field p-col-12 p-sm-6 p-md-3">
         <label id="labelInput">Complemento</label>
-        <input class="p-inputtext-lg" type="text" placeholder="Digite o complemento" pInputText>
+        <input [(ngModel)]="funcionario.endereco.complemento" class="p-inputtext-lg" type="text" placeholder="Digite o complemento" pInputText>
     </div>
 
     <div class="p-field p-col-12 p-sm-6 p-md-3">
         <label id="labelInput">Numero</label>
-        <p-inputNumber class="p-inputtext-lg" mode="decimal" [showButtons]="true" [min]="0" [max]="100"></p-inputNumber>
+        <p-inputNumber [(ngModel)]="funcionario.endereco.numero" class="p-inputtext-lg" mode="decimal" [showButtons]="true" [min]="0" [max]="100"></p-inputNumber>
     </div>
 </div>
 
 <div class="row" id="buttons">
-    <button pButton pRipple id="buttonLimpar" type="button" label="Limpar" class="p-button-danger" icon="pi pi-trash" iconPos="left"></button>
-    <button pButton pRipple type="button" label="Salvar" class="p-button-sucess" icon="pi pi-check" iconPos="left"></button>    
+    <button pButton pRipple id="buttonLimpar" type="button" label="Limpar" class="p-button-danger" icon="pi pi-trash" iconPos="left" (click)="apagarFormulario()"></button>
+    <button pButton pRipple type="button" label="Salvar" class="p-button-sucess" icon="pi pi-check" iconPos="left" (click)="setFuncionario()"></button>    
 </div>
