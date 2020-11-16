@@ -21,3 +21,13 @@
 #InputBotton {
     margin-top: 15px;
 }
+
+#buttons {
+    margin-top: 50px;
+    text-align: right;    
+    opacity: 1.0;
+}
+
+#buttonLimpar {
+    margin-right: 15px;
+}
