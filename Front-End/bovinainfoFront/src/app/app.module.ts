@@ -12,6 +12,9 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { TableModule } from 'primeng/table';
+import { DialogModule } from 'primeng/dialog';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { DynamicDialogModule } from 'primeng/dynamicdialog';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -44,9 +47,14 @@ import { HomeComponent } from './home/home.component';
     CommonModule,
     HttpClientModule,
     ReactiveFormsModule,
-    TableModule
+    TableModule,
+    DialogModule,
+    ConfirmDialogModule, 
+    DynamicDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+export class DynamicDialogDemoModule { }
+export declare class ConfirmationService { }

@@ -1,5 +1,5 @@
 <div class="card">
-    <p-table #dt [value]="funcionarios" [rows]="5" [paginator]="true" [rowHover]="true" [showCurrentPageReport]="true">
+    <p-table #dt [value]="funcionarios" [rows]="7" [paginator]="true" [rowHover]="true" [showCurrentPageReport]="true">
         <ng-template pTemplate="caption">
             <div class="p-d-flex p-ai-center p-jc-between">
                 <h3 class="p-m-0" id="Title"><i id="IconTitle" class="pi pi-user"></i>Emissão de Funcionarios</h3>
@@ -15,11 +15,8 @@
                 <th>CPF</th>
                 <th>Data de Nascimento</th>
                 <th>E-Mail</th>
-                <th>Telefone</th>
-                <th>CEP</th>
-                <th>Logradouro</th>
-                <th>Complemento</th>
-                <th>Numero</th>
+                <th>Telefone</th>               
+                <th>Endereço</th>
             </tr>
         </ng-template>
         <ng-template pTemplate="body" let-funcionario>
@@ -28,12 +25,17 @@
                 <td>{{ funcionario.cpf }}</td>
                 <td>{{ funcionario.data_nascimento }}</td>
                 <td>{{ funcionario.email }}</td>
-                <td>{{ funcionario.telefone }}</td>
-                <td>{{ funcionario.endereco.cep }}</td>
-                <td>{{ funcionario.endereco.logradouro }}</td>
-                <td>{{ funcionario.endereco.complemento }}</td>
-                <td>{{ funcionario.endereco.numero }}</td>
+                <td>{{ funcionario.telefone }}</td>                
+                <td>
+                    <button pButton pRipple type="button" label="Mostrar" class="p-button-info" (click)="infoFuncionario(funcionario)"></button>
+                </td>
             </tr>
         </ng-template>
     </p-table>
 </div>
+
+<p-dialog [(visible)]="funcionarioDialog" header="Endereço" [modal]="true">
+    <ng-template pTemplate="content">
+        
+    </ng-template>
+</p-dialog>

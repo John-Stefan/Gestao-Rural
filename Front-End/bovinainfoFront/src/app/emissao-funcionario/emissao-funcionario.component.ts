@@ -1,4 +1,6 @@
+import { BoundElementPropertyAst } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
+import { Funcionario } from '../funcionario';
 import { FuncionarioService } from '../funcionario.service';
 
 @Component({
@@ -6,8 +8,10 @@ import { FuncionarioService } from '../funcionario.service';
   templateUrl: './emissao-funcionario.component.html',
   styleUrls: ['./emissao-funcionario.component.css']
 })
-export class EmissaoFuncionarioComponent implements OnInit {
-
+export class EmissaoFuncionarioComponent implements OnInit {  
+  
+  funcionarioDialog: boolean;
+  funcionario: Funcionario;
   funcionarios;
   selectedFuncionario;
 
@@ -20,5 +24,10 @@ export class EmissaoFuncionarioComponent implements OnInit {
 
   public selectFuncionarios(funcionarios) {
     this.selectedFuncionario = funcionarios;
+  }
+
+  public infoFuncionario(funcionario: Funcionario) {
+    this.funcionario = {...funcionario};
+    this.funcionarioDialog = true;
   }
 }

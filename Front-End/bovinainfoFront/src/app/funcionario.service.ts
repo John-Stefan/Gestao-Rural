@@ -17,8 +17,7 @@ export class FuncionarioService {
   public setFuncionario(funcionarios): Observable<any> {   
     var moment = require('moment');
     require('moment/locale/pt-br');    
-    funcionarios.data_nascimento = moment(funcionarios.data_nascimento).format('L'); 
-    console.log(funcionarios);
+    funcionarios.data_nascimento = moment(funcionarios.data_nascimento).format('L');     
     return this.http.post("http://localhost:8080/pessoa", funcionarios);
   }
 }

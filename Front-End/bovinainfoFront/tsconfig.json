@@ -2,7 +2,7 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "types": ["node", "@types/jest"],
+    "types": ["node"],
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
     "sourceMap": true,
