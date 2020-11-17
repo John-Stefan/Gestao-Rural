@@ -10,7 +10,7 @@ import { FuncionarioService } from '../funcionario.service';
 })
 export class EmissaoFuncionarioComponent implements OnInit {  
   
-  funcionarioDialog: boolean;
+  funcionarioDialogEndereco: boolean;
   funcionario: Funcionario;
   funcionarios;
   selectedFuncionario;
@@ -28,6 +28,6 @@ export class EmissaoFuncionarioComponent implements OnInit {
 
   public infoFuncionario(funcionario: Funcionario) {
     this.funcionario = {...funcionario};
-    this.funcionarioDialog = true;
+    this.funcionarioDialogEndereco = true;
   }
 }

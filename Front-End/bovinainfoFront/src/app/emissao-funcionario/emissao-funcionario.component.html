@@ -34,8 +34,20 @@
     </p-table>
 </div>
 
-<p-dialog [(visible)]="funcionarioDialog" header="Endereço" [modal]="true">
+<p-dialog [(visible)]="funcionarioDialogEndereco" [style]="{width: '450px'}" header="Endereço" [modal]="true" styleClass="p-fluid">
     <ng-template pTemplate="content">
-        
+        <div class="p-field">
+            <label for="cep">CEP</label>
+            <input type="text" pInputText id="inputDisabled" [(ngModel)]="funcionario.endereco.cep" [disabled]="true">
+
+            <label for="logradouro" id="labelInputDisabled">Logradouro</label>
+            <input type="text" pInputText id="inputDisabled" [(ngModel)]="funcionario.endereco.logradouro" [disabled]="true">
+
+            <label for="complemento" id="labelInputDisabled">Complemento</label>
+            <input type="text" pInputText id="inputDisabled" [(ngModel)]="funcionario.endereco.complemento" [disabled]="true">
+
+            <label for="numero" id="labelInputDisabled">Numero</label>
+            <input type="text" pInputText id="inputDisabled" [(ngModel)]="funcionario.endereco.numero" [disabled]="true">
+        </div>
     </ng-template>
 </p-dialog>
