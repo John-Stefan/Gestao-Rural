@@ -15,6 +15,9 @@ import { TableModule } from 'primeng/table';
 import { DialogModule } from 'primeng/dialog';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { DynamicDialogModule } from 'primeng/dynamicdialog';
+import { MessagesModule } from 'primeng/messages';
+import { MessageModule } from 'primeng/message';
+import { ToastModule } from 'primeng/toast';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -23,6 +26,9 @@ import { EmissaoFuncionarioComponent } from './emissao-funcionario/emissao-funci
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from './home/home.component';
+import { FuncionarioService } from './funcionario.service';
+import { MessageService } from 'primeng/api';
+import { ConfirmationService } from 'primeng/api';
 
 @NgModule({
   declarations: [
@@ -50,11 +56,13 @@ import { HomeComponent } from './home/home.component';
     TableModule,
     DialogModule,
     ConfirmDialogModule, 
-    DynamicDialogModule
+    DynamicDialogModule,
+    MessagesModule,
+    MessageModule,
+    ToastModule
   ],
-  providers: [],
+  providers: [FuncionarioService, MessageService, ConfirmationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
-export class DynamicDialogDemoModule { }
-export declare class ConfirmationService { }
+

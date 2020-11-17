@@ -20,4 +20,8 @@ export class FuncionarioService {
     funcionarios.data_nascimento = moment(funcionarios.data_nascimento).format('L');     
     return this.http.post("http://localhost:8080/pessoa", funcionarios);
   }
+
+  public delete(id): Observable<any> {
+    return this.http.delete(`http://localhost:8080/pessoa/${id}`);
+  }
 }

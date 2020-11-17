@@ -1,3 +1,5 @@
+<p-toast></p-toast>
+
 <div class="card">
     <p-table #dt [value]="funcionarios" [rows]="7" [paginator]="true" [rowHover]="true" [showCurrentPageReport]="true">
         <ng-template pTemplate="caption">
@@ -14,7 +16,7 @@
                 <th colspan="3">Nome</th>
                 <th colspan="2">CPF</th>
                 <th colspan="2">Data de Nascimento</th>
-                <th colspan="2">E-Mail</th>
+                <th colspan="3">E-Mail</th>
                 <th colspan="2">Telefone</th>               
                 <th colspan="2">Endereço</th>
                 <th colspan="1"></th>
@@ -25,14 +27,14 @@
                 <td colspan="3">{{ funcionario.nome }}</td>
                 <td colspan="2">{{ funcionario.cpf }}</td>
                 <td colspan="2">{{ funcionario.data_nascimento }}</td>
-                <td colspan="2">{{ funcionario.email }}</td>
+                <td colspan="3">{{ funcionario.email }}</td>
                 <td colspan="2">{{ funcionario.telefone }}</td>                
                 <td colspan="2">
                     <button pButton pRipple type="button" label="Mostrar" class="p-button-info" (click)="infoFuncionario(funcionario)"></button>
                 </td>
                 <td colspan="1">
                     <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-sucess p-mr-2"></button>
-                    <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-danger"></button>
+                    <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-danger" (click)="apagarFuncionario(funcionario)"></button>
                 </td>
             </tr>
         </ng-template>
@@ -56,3 +58,5 @@
         </div>
     </ng-template>
 </p-dialog>
+
+<p-confirmDialog [style]="{width: '450px'}"></p-confirmDialog>
