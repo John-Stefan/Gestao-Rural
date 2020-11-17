@@ -1,5 +1,7 @@
 package com.gestaorural.bovinainfo.model;
 
+import java.math.BigDecimal;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -19,7 +21,7 @@ public class Patrimonio {
 	private String descricao;
 	
 	@Column(name = "tamanho_patrimonio")
-	private double tamanho_patrimonio;
+	private BigDecimal tamanho_patrimonio;
 	
 	@Column(name = "nome_dono")
 	private String nome_dono;

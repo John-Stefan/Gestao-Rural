@@ -10,7 +10,7 @@ export class FuncionarioService {
 
   constructor(private http: HttpClient) { }
 
-  public getFuncionario(): Observable<any> {
+  public getFuncionario(): Observable<any> {    
     return this.http.get("http://localhost:8080/pessoa");
   }
 

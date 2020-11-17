@@ -1,13 +1,39 @@
 <div class="card">
-    <p-table #dt [rows]="5" [paginator]="true" [rowHover]="true" [showCurrentPageReport]="true">
+    <p-table #dt [value]="funcionarios" [rows]="5" [paginator]="true" [rowHover]="true" [showCurrentPageReport]="true">
         <ng-template pTemplate="caption">
             <div class="p-d-flex p-ai-center p-jc-between">
                 <h3 class="p-m-0" id="Title"><i id="IconTitle" class="pi pi-user"></i>Emissão de Funcionarios</h3>
                 <span class="p-input-icon-left">
                     <i class="pi pi-search"></i>
-                    <input pInputText type="text" placeholder="Search..." />
+                    <input pInputText type="text" placeholder="Procurar..." />
                 </span>
             </div>
+        </ng-template>
+        <ng-template pTemplate="header">
+            <tr>
+                <th>Nome</th>
+                <th>CPF</th>
+                <th>Data de Nascimento</th>
+                <th>E-Mail</th>
+                <th>Telefone</th>
+                <th>CEP</th>
+                <th>Logradouro</th>
+                <th>Complemento</th>
+                <th>Numero</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-funcionario>
+            <tr>                
+                <td>{{ funcionario.nome }}</td>
+                <td>{{ funcionario.cpf }}</td>
+                <td>{{ funcionario.data_nascimento }}</td>
+                <td>{{ funcionario.email }}</td>
+                <td>{{ funcionario.telefone }}</td>
+                <td>{{ funcionario.endereco.cep }}</td>
+                <td>{{ funcionario.endereco.logradouro }}</td>
+                <td>{{ funcionario.endereco.complemento }}</td>
+                <td>{{ funcionario.endereco.numero }}</td>
+            </tr>
         </ng-template>
     </p-table>
 </div>

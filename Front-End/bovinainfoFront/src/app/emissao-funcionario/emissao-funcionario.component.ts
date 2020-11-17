@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FuncionarioService } from '../funcionario.service';
 
 @Component({
   selector: 'app-emissao-funcionario',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EmissaoFuncionarioComponent implements OnInit {
 
-  constructor() { }
+  funcionarios;
+  selectedFuncionario;
+
+  constructor(private funcionarioService : FuncionarioService) { }
 
   ngOnInit(): void {
+    this.funcionarioService.getFuncionario().subscribe(resultado => (this.funcionarios = resultado));
+    console.log(this.funcionarioService.getFuncionario());
   }
 
+  public selectFuncionarios(funcionarios) {
+    this.selectedFuncionario = funcionarios;
+  }
 }
