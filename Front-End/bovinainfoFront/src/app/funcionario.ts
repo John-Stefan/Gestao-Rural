@@ -5,5 +5,5 @@ export interface Funcionario {
     data_nascimento: "";
     telefone: "";
     email: "";
-    endereco: { cep: null, logradouro: "", complemento: "", numero: ""};
+    endereco: { id: null, cep: null, logradouro: "", complemento: "", numero: ""};
 }
