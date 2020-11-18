@@ -18,7 +18,8 @@ export class HeaderComponent implements OnInit {
     this.items = [
       {
         label: 'Inicio',
-        routerLink: 'home'              
+        routerLink: 'home',
+        icon: 'pi pi-home',            
       },
       {
         label: 'Perfil',
