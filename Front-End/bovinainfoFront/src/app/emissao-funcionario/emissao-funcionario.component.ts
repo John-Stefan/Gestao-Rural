@@ -21,7 +21,8 @@ export class EmissaoFuncionarioComponent implements OnInit {
   constructor(private funcionarioService: FuncionarioService, private messageService: MessageService, private confirmationService: ConfirmationService) { }
 
   ngOnInit(): void {
-    this.calendarioBr = {firstDayOfWeek: 0,
+    this.calendarioBr = {
+      firstDayOfWeek: 0,
       dayNames: ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado'],
       dayNamesShort: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sab'],
       dayNamesMin: ['Do', 'Se', 'Te', 'Qu', 'Qu', 'Se', 'Sa'],
@@ -42,9 +43,27 @@ export class EmissaoFuncionarioComponent implements OnInit {
     this.funcionarioDialogEndereco = true;
   }
 
-  public editarFuncionario(funcionario: Funcionario) {
-    this.funcionario = {...funcionario};
+  public editarFuncionarioDialog(funcionario: Funcionario) {
+    this.funcionario = { ...funcionario };
     this.funcionarioDialogEditar = true;
+  }
+
+  public editarFuncionario() {
+    this.funcionarioService.setFuncionario(this.funcionario).subscribe(resultado => {
+      {
+        this.funcionario = {
+          id: null, nome: null, cpf: null, data_nascimento: "", telefone: "", email: "", endereco: { id: null, cep: null, logradouro: "", complemento: "", numero: "" }
+        }
+      }
+      this.getFuncionario();
+    });
+    this.messageService.add({ severity: 'success', summary: 'Sucesso', detail: 'Funcionario alterado com sucesso!', life: 3000 });
+    this.funcionarios = [...this.funcionarios];
+    this.funcionarioDialogEditar = false;
+  }
+
+  public fecharFuncionarioDialog() {
+    this.funcionarioDialogEditar = false;
   }
 
   public apagarFuncionario(funcionario: Funcionario) {
@@ -56,14 +75,14 @@ export class EmissaoFuncionarioComponent implements OnInit {
       rejectLabel: 'Não',
       accept: () => {
         this.funcionarioService.delete(funcionario.id).subscribe(resultado => {
-          this.messageService.add({ severity: 'success', summary: 'Sucesso', detail: 'Funcionario excluido com sucesso', life: 3000 });   
-          this.getFuncionario();    
-        });        
+          this.messageService.add({ severity: 'success', summary: 'Sucesso', detail: 'Funcionario excluido com sucesso!', life: 3000 });
+          this.getFuncionario();
+        });
       }
     });
   }
 
   public getFuncionario() {
-    this.funcionarioService.getFuncionario().subscribe(resultado => (this.funcionarios = resultado)); 
+    this.funcionarioService.getFuncionario().subscribe(resultado => (this.funcionarios = resultado));
   }
 }

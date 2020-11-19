@@ -14,10 +14,14 @@ export class FuncionarioService {
     return this.http.get("http://localhost:8080/pessoa");
   }
 
-  public setFuncionario(funcionarios): Observable<any> {   
-    var moment = require('moment');
-    require('moment/locale/pt-br');    
-    funcionarios.data_nascimento = moment(funcionarios.data_nascimento).format('L');     
+  public setFuncionario(funcionarios): Observable<any> {    
+    var moment = require('moment');     
+    
+    if (!moment(funcionarios.data_nascimento.toString(), "DD/MM/YYYY").isValid()) {  
+      require('moment/locale/pt-br'); 
+      funcionarios.data_nascimento = moment(funcionarios.data_nascimento).format('L');  
+      console.log(funcionarios.data_nascimento); 
+    }  
     return this.http.post("http://localhost:8080/pessoa", funcionarios);
   }
 

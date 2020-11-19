@@ -33,7 +33,7 @@
                     <button pButton pRipple type="button" label="Mostrar" class="p-button-info" (click)="infoFuncionario(funcionario)"></button>
                 </td>
                 <td colspan="1">
-                    <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-sucess p-mr-2" (click)="editarFuncionario(funcionario)"></button>
+                    <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-sucess p-mr-2" (click)="editarFuncionarioDialog(funcionario)"></button>
                     <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-danger" (click)="apagarFuncionario(funcionario)"></button>
                 </td>
             </tr>
@@ -113,6 +113,11 @@
                 <p-inputNumber [(ngModel)]="funcionario.endereco.numero" class="p-inputtext-lg" mode="decimal" [showButtons]="true" [min]="0" [max]="100"></p-inputNumber>
             </div>
         </div>
+    </ng-template>
+
+    <ng-template pTemplate="footer">
+        <button pButton pRipple label="Cancelar" icon="pi pi-times" class="p-button-danger p-button-text" (click)="fecharFuncionarioDialog()"></button>
+        <button pButton pRipple label="Salvar" icon="pi pi-check" class="p-button-text" (click)="editarFuncionario()"></button>
     </ng-template>
 </p-dialog>
 

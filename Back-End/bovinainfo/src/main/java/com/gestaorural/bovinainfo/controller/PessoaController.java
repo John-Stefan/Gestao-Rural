@@ -46,5 +46,5 @@ public class PessoaController {
 	@DeleteMapping("/{id}")
 	public void delete(@PathVariable Long id) {
 		pessoaPersistencia.deleteById(id);
-	}
+	}	
 }

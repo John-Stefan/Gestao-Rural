@@ -32,8 +32,7 @@ public class Pessoa {
 	@Column(name = "email", unique=true)
 	private String email;	
 
-	@Column(name = "data_nascimento")
-	@Temporal(TemporalType.DATE)
+	@Column(name = "data_nascimento")	
 	@JsonFormat(pattern="dd/MM/yyyy")
 	private Calendar data_nascimento;
 	
