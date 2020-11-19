@@ -29,6 +29,8 @@ import { HomeComponent } from './home/home.component';
 import { FuncionarioService } from './funcionario.service';
 import { MessageService } from 'primeng/api';
 import { ConfirmationService } from 'primeng/api';
+import { ControleProducaoComponent } from './controle-producao/controle-producao.component';
+import { HeaderControleProducaoComponent } from './header-controle-producao/header-controle-producao.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +39,9 @@ import { ConfirmationService } from 'primeng/api';
     EmissaoFuncionarioComponent,
     HeaderComponent,
     FooterComponent,
-    HomeComponent    
+    HomeComponent,    
+    ControleProducaoComponent, 
+    HeaderControleProducaoComponent    
   ],
   imports: [
     BrowserModule,
