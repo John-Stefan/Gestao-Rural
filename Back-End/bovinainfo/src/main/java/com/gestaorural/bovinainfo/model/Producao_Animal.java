@@ -20,22 +20,22 @@ public class Producao_Animal {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;	
 
-	@Column(name = "quantidade_leite")
+	@Column(name = "proAni_quantidadeLeite")
 	private double quantidade_leite;
 	
-	@Column(name = "inicio")
+	@Column(name = "proAni_inicio")
 	private Calendar inicio;
 	
-	@Column(name = "fim")
+	@Column(name = "proAni_fim")
 	private Calendar fim;
 	
-	@Column(name = "observacoes")
+	@Column(name = "proAni_observacoes")
 	private String observacoes;
 	
-	@Column(name = "nota_saude")
+	@Column(name = "proAni_notaSaude")
 	private short nota_saude;
 	
-	@Column(name = "peso")
+	@Column(name = "proAni_peso")
 	private double peso;
 	
 	@ManyToOne
