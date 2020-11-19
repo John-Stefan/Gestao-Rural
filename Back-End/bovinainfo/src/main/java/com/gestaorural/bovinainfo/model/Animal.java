@@ -28,6 +28,9 @@ public class Animal {
 	@Column(name = "raca")
 	private String raca;
 	
+	@Column(name = "origem")
+	private String origem;
+	
 	@Column(name = "data_nascimento")
 	private Calendar data_nascimento;
 	
