@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MenuItem } from 'primeng/api';
 
 @Component({
   selector: 'app-header-controle-producao',
@@ -9,7 +10,17 @@ export class HeaderControleProducaoComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit(): void {
-  }
+  items: MenuItem[];
+  activeItem: MenuItem;
 
+  ngOnInit(): void {
+    this.items = [ 
+      {label: 'Registro'},
+      {label: 'Produção'},
+      {label: 'Observações'},
+      {label: 'Estatísticas'}
+    ];
+
+    this.activeItem = this.items[0];
+  }
 }

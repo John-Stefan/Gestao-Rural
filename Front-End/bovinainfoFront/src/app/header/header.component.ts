@@ -27,7 +27,8 @@ export class HeaderComponent implements OnInit {
       },
       {
         label: 'Controle de Produção',
-        icon: 'pi pi-chart-bar'        
+        icon: 'pi pi-chart-bar',
+        routerLink: 'controle-producao'        
       },
       {
         label: 'Cadastros',

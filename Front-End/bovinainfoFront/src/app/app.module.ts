@@ -18,6 +18,7 @@ import { DynamicDialogModule } from 'primeng/dynamicdialog';
 import { MessagesModule } from 'primeng/messages';
 import { MessageModule } from 'primeng/message';
 import { ToastModule } from 'primeng/toast';
+import { TabMenuModule } from 'primeng/tabmenu';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -63,7 +64,8 @@ import { HeaderControleProducaoComponent } from './header-controle-producao/head
     DynamicDialogModule,
     MessagesModule,
     MessageModule,
-    ToastModule
+    ToastModule,
+    TabMenuModule    
   ],
   providers: [FuncionarioService, MessageService, ConfirmationService],
   bootstrap: [AppComponent]
