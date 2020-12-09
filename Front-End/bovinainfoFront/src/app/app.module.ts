@@ -32,6 +32,7 @@ import { FuncionarioService } from './funcionario.service';
 import { MessageService } from 'primeng/api';
 import { ConfirmationService } from 'primeng/api';
 import { RegistroComponent } from './registro/registro.component';
+import { ProducaoComponent } from './producao/producao.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { RegistroComponent } from './registro/registro.component';
     HeaderComponent,
     FooterComponent,
     HomeComponent,
-    RegistroComponent   
+    RegistroComponent,
+    ProducaoComponent   
   ],
   imports: [
     BrowserModule,
