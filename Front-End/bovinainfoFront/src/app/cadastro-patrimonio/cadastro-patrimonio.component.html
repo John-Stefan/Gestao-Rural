@@ -1,0 +1,48 @@
+<div class="row" id="Title">
+    <h1><i id="IconTitle" class="pi pi-home"></i>Cadastro de Patrimonio</h1>
+</div>
+
+<div class="p-fluid p-grid p-formgrid" id="InputTop">
+    <div class="p-field p-col-12 p-sm-12 p-md-6">
+        <label id="labelInput">Nome da Fazenda</label>
+        <input [(ngModel)]="patrimonio.nome_fazenda" class="p-inputtext-lg" type="text" placeholder="Informe o nome" pInputText>
+    </div>
+
+    <div class="p-field p-col-12 p-sm-6 p-md-3">
+        <label id="labelInput">Tamanho do Patrimônio</label>
+        <input [(ngModel)]="patrimonio.tamanho_alqueire" class="p-inputtext-lg" type="text" placeholder="Informe o tamanho" pInputText>
+    </div>
+
+    <div class="p-field p-col-12 p-sm-6 p-md-3">
+        <label id="labelInput">CEP</label>
+        <p-inputMask [(ngModel)]="patrimonio.endereco.cep" class="p-inputtext-lg" mask="99999-999" placeholder="_____-___"></p-inputMask>
+    </div>
+</div>
+
+<div class="p-fluid p-grid p-formgrid" id="InputBotton">
+    <div class="p-field p-col-12 p-sm-12 p-md-6">
+        <label id="labelInput">Endereço</label>
+        <input [(ngModel)]="patrimonio.endereco.logradouro" class="p-inputtext-lg" type="text" placeholder="Informe o endereço" pInputText>
+    </div>
+
+    <div class="p-field p-col-12 p-sm-6 p-md-3">
+        <label id="labelInput">Numero</label>
+        <p-inputNumber [(ngModel)]="patrimonio.endereco.numero" class="p-inputtext-lg" mode="decimal" [showButtons]="true" [min]="0" [max]="100"></p-inputNumber>
+    </div>
+</div>
+<div class="p-fluid p-grid p-formgrid" id="InputBotton">
+    <div class="p-field p-col-12 p-sm-12 p-md-6">
+        <label id="labelInput">Proprietário</label>
+        <input  class="p-inputtext-lg" type="text" placeholder="Informe o Proprietário" pInputText>
+    </div>
+
+    <div class="p-field p-col-12 p-sm-6 p-md-3">
+        <label id="labelInput">Complemento</label>
+        <input  [(ngModel)]="patrimonio.endereco.complemento" class="p-inputtext-lg" type="text" placeholder="Digite o complemento" pInputText>
+    </div>
+</div>
+
+<div class="row" id="buttons">
+    <button pButton pRipple id="buttonLimpar" type="button" label="Limpar" (click)="apagarFormulario()" class="p-button-danger" icon="pi pi-trash" iconPos="left"></button>
+    <button pButton pRipple type="button" label="Salvar" (click)="setPatrimonio()" class="p-button-sucess" icon="pi pi-check" iconPos="left"></button>    
+</div>
