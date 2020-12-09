@@ -1,0 +1,106 @@
+<p-toast></p-toast>
+
+<div class="card">
+    <p-table #dt [value]="patrimonios" [rows]="7" [paginator]="true" [rowHover]="true" [showCurrentPageReport]="true">
+        <ng-template pTemplate="caption">
+            <div class="p-d-flex p-ai-center p-jc-between">
+                <h3 class="p-m-0" id="Title"><i id="IconTitle" class="pi pi-user"></i>Emissão de Patrimonios</h3>
+                <span class="p-input-icon-left">
+                    <i class="pi pi-search"></i>
+                    <input pInputText type="text" placeholder="Procurar..." />
+                </span>
+            </div>
+        </ng-template>
+        <ng-template pTemplate="header">
+            <tr>
+                <th colspan="3">Nome Da Fazenda</th>
+                <th colspan="2">Tamanho</th> 
+                <th colspan="2">Proprietario</th>
+                <th colspan="3">Endereço</th>           
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-patrimonio>
+            <tr>                
+                <td colspan="3">{{ patrimonio.nome_fazenda }}</td>
+                <td colspan="2">{{ patrimonio.tamanho_alqueire }}</td>
+                <td colspan="2">{{ patrimonio.endereco.id }}</td>
+                <td colspan="2">
+                    <button pButton pRipple type="button" label="Mostrar" class="p-button-info" (click)="infoPatrimonio(patrimonio)"></button>
+                </td>
+                <td colspan="1">
+                    <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-sucess p-mr-2" (click)="editarPatrimonioDialog(patrimonio)"></button>
+                    <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-danger" (click)="apagarPatrimonio(patrimonio)"></button>
+                </td>
+            </tr>
+        </ng-template>
+    </p-table>
+</div>
+
+<p-dialog [(visible)]="patrimonioDialogEndereco" [style]="{width: '450px'}" header="Endereço" [modal]="true" styleClass="p-fluid">
+    <ng-template pTemplate="content">
+        <div class="p-field">
+            <label for="cep">CEP</label>
+            <input type="text" pInputText id="inputDisabled" [(ngModel)]="patrimonio.endereco.cep" [disabled]="true">
+
+            <label for="logradouro" id="labelInputDisabled">Logradouro</label>
+            <input type="text" pInputText id="inputDisabled" [(ngModel)]="patrimonio.endereco.logradouro" [disabled]="true">
+
+            <label for="complemento" id="labelInputDisabled">Complemento</label>
+            <input type="text" pInputText id="inputDisabled" [(ngModel)]="patrimonio.endereco.complemento" [disabled]="true">
+
+            <label for="numero" id="labelInputDisabled">Numero</label>
+            <input type="text" pInputText id="inputDisabled" [(ngModel)]="patrimonio.endereco.numero" [disabled]="true">
+        </div>
+    </ng-template>
+</p-dialog>
+
+<p-dialog [(visible)]="patrimonioDialogEditar" header="Patrimonio" styleClass="p-fluid">
+    <ng-template pTemplate="contect">
+        <div class="p-fluid p-grid p-formgrid" id="InputTop">
+            <div class="p-field p-col-12 p-sm-12 p-md-6">
+                <label id="labelInput">Nome da Fazenda</label>
+                <input [(ngModel)]="patrimonio.nome_fazenda" class="p-inputtext-lg" type="text" placeholder="Informe o nome" pInputText>
+            </div>
+        
+            <div class="p-field p-col-12 p-sm-6 p-md-3">
+                <label id="labelInput">Tamanho do Patrimônio</label>
+                <input [(ngModel)]="patrimonio.tamanho_alqueire" class="p-inputtext-lg" type="text" placeholder="Informe o tamanho" pInputText>
+            </div>
+        
+            <div class="p-field p-col-12 p-sm-6 p-md-3">
+                <label id="labelInput">CEP</label>
+                <p-inputMask [(ngModel)]="patrimonio.endereco.cep" class="p-inputtext-lg" mask="99999-999" placeholder="_____-___"></p-inputMask>
+            </div>
+        </div>
+        
+        <div class="p-fluid p-grid p-formgrid" id="InputBotton">
+            <div class="p-field p-col-12 p-sm-12 p-md-6">
+                <label id="labelInput">Endereço</label>
+                <input [(ngModel)]="patrimonio.endereco.logradouro" class="p-inputtext-lg" type="text" placeholder="Informe o endereço" pInputText>
+            </div>
+        
+            <div class="p-field p-col-12 p-sm-6 p-md-3">
+                <label id="labelInput">Numero</label>
+                <p-inputNumber [(ngModel)]="patrimonio.endereco.numero" class="p-inputtext-lg" mode="decimal" [showButtons]="true" [min]="0" [max]="100"></p-inputNumber>
+            </div>
+        </div>
+        <div class="p-fluid p-grid p-formgrid" id="InputBotton">
+            <div class="p-field p-col-12 p-sm-12 p-md-6">
+                <label id="labelInput">Proprietário</label>
+                <input  class="p-inputtext-lg" type="text" placeholder="Informe o Proprietário" pInputText>
+            </div>
+        
+            <div class="p-field p-col-12 p-sm-6 p-md-3">
+                <label id="labelInput">Complemento</label>
+                <input  [(ngModel)]="patrimonio.endereco.complemento" class="p-inputtext-lg" type="text" placeholder="Digite o complemento" pInputText>
+            </div>
+        </div>
+    </ng-template>
+
+    <ng-template pTemplate="footer">
+        <button pButton pRipple id="buttonLimpar" type="button" label="Limpar" class="p-button-danger" (click)="fecharPatrimonioDialog()" icon="pi pi-trash" iconPos="left"></button>
+        <button pButton pRipple type="button" label="Salvar" (click)="editarPatrimonio()" class="p-button-sucess" icon="pi pi-check" iconPos="left"></button>    
+   </ng-template>
+</p-dialog>
+
+<p-confirmDialog></p-confirmDialog>
