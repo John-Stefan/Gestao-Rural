@@ -15,7 +15,7 @@ export class HeaderControleProducaoComponent implements OnInit {
 
   ngOnInit(): void {
     this.items = [ 
-      {label: 'Registro'},
+      {label: 'Registro', routerLink: '/registro'},
       {label: 'Produção'},
       {label: 'Observações'},
       {label: 'Estatísticas'}

@@ -32,6 +32,7 @@ import { MessageService } from 'primeng/api';
 import { ConfirmationService } from 'primeng/api';
 import { ControleProducaoComponent } from './controle-producao/controle-producao.component';
 import { HeaderControleProducaoComponent } from './header-controle-producao/header-controle-producao.component';
+import { RegistroComponent } from './controle-producao/registro/registro.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { HeaderControleProducaoComponent } from './header-controle-producao/head
     FooterComponent,
     HomeComponent,    
     ControleProducaoComponent, 
-    HeaderControleProducaoComponent    
+    HeaderControleProducaoComponent, 
+    RegistroComponent    
   ],
   imports: [
     BrowserModule,
