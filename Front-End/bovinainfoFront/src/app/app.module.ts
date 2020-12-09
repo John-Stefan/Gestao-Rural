@@ -19,8 +19,9 @@ import { MessagesModule } from 'primeng/messages';
 import { MessageModule } from 'primeng/message';
 import { ToastModule } from 'primeng/toast';
 import { TabMenuModule } from 'primeng/tabmenu';
-
+import { DropdownModule } from 'primeng/dropdown';
 import { AppRoutingModule } from './app-routing.module';
+
 import { AppComponent } from './app.component';
 import { CadastroFuncionarioComponent } from './cadastro-funcionario/cadastro-funcionario.component';
 import { EmissaoFuncionarioComponent } from './emissao-funcionario/emissao-funcionario.component';
@@ -30,10 +31,10 @@ import { HomeComponent } from './home/home.component';
 import { FuncionarioService } from './funcionario.service';
 import { MessageService } from 'primeng/api';
 import { ConfirmationService } from 'primeng/api';
-import { ControleProducaoComponent } from './controle-producao/controle-producao.component';
-import { HeaderControleProducaoComponent } from './header-controle-producao/header-controle-producao.component';
 import { EmissaoPatrimonioComponent } from './emissao-patrimonio/emissao-patrimonio.component';
 import { CadastroPatrimonioComponent } from './cadastro-patrimonio/cadastro-patrimonio.component';
+import { RegistroComponent } from './registro/registro.component';
+
 
 @NgModule({
   declarations: [
@@ -44,9 +45,8 @@ import { CadastroPatrimonioComponent } from './cadastro-patrimonio/cadastro-patr
     CadastroPatrimonioComponent,
     HeaderComponent,
     FooterComponent,
-    HomeComponent,    
-    ControleProducaoComponent, 
-    HeaderControleProducaoComponent    
+    HomeComponent,
+    RegistroComponent
   ],
   imports: [
     BrowserModule,
@@ -69,7 +69,8 @@ import { CadastroPatrimonioComponent } from './cadastro-patrimonio/cadastro-patr
     MessagesModule,
     MessageModule,
     ToastModule,
-    TabMenuModule    
+    TabMenuModule,
+    DropdownModule   
   ],
   providers: [FuncionarioService, MessageService, ConfirmationService],
   bootstrap: [AppComponent]

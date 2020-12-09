@@ -32,7 +32,8 @@ export class HeaderComponent implements OnInit {
         routerLink: 'controle-producao',
         items:[
           {
-            label: 'Registro'
+            label: 'Registro',
+            routerLink: 'registro'
           },
           {
             label: 'Produção'
