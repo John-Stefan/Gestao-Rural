@@ -21,6 +21,8 @@ import { ToastModule } from 'primeng/toast';
 import { TabMenuModule } from 'primeng/tabmenu';
 import { DropdownModule } from 'primeng/dropdown';
 import { AppRoutingModule } from './app-routing.module';
+import { RatingModule } from 'primeng/rating';
+import { EditorModule } from 'primeng/editor';
 
 import { AppComponent } from './app.component';
 import { CadastroFuncionarioComponent } from './cadastro-funcionario/cadastro-funcionario.component';
@@ -34,6 +36,7 @@ import { ConfirmationService } from 'primeng/api';
 import { EmissaoPatrimonioComponent } from './emissao-patrimonio/emissao-patrimonio.component';
 import { CadastroPatrimonioComponent } from './cadastro-patrimonio/cadastro-patrimonio.component';
 import { RegistroComponent } from './registro/registro.component';
+import { ProducaoComponent } from './producao/producao.component';
 
 
 @NgModule({
@@ -46,7 +49,8 @@ import { RegistroComponent } from './registro/registro.component';
     HeaderComponent,
     FooterComponent,
     HomeComponent,
-    RegistroComponent
+    RegistroComponent,
+    ProducaoComponent
   ],
   imports: [
     BrowserModule,
@@ -70,7 +74,9 @@ import { RegistroComponent } from './registro/registro.component';
     MessageModule,
     ToastModule,
     TabMenuModule,
-    DropdownModule   
+    DropdownModule,
+    RatingModule,
+    EditorModule
   ],
   providers: [FuncionarioService, MessageService, ConfirmationService],
   bootstrap: [AppComponent]

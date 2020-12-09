@@ -36,7 +36,8 @@ export class HeaderComponent implements OnInit {
             routerLink: 'registro'
           },
           {
-            label: 'Produção'
+            label: 'Produção',
+            routerLink: 'producao'
           },
           {
             label: 'Estatisticas'

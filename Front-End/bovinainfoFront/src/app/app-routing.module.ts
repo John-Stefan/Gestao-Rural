@@ -6,6 +6,7 @@ import {CadastroPatrimonioComponent} from './cadastro-patrimonio/cadastro-patrim
 import {EmissaoPatrimonioComponent } from './emissao-patrimonio/emissao-patrimonio.component';
 import { HomeComponent } from './home/home.component';
 import { RegistroComponent } from './registro/registro.component';
+import { ProducaoComponent } from './producao/producao.component';
 
 const routes: Routes = [
   {path: "", pathMatch: "full", redirectTo: "home"},
@@ -14,7 +15,8 @@ const routes: Routes = [
   {path: "emissao-funcionario", component: EmissaoFuncionarioComponent},
   {path: "cadastro-patrimonio", component: CadastroPatrimonioComponent},
   {path: "emissao-patrimonio", component: EmissaoPatrimonioComponent},
-  {path: "registro", component: RegistroComponent}
+  {path: "registro", component: RegistroComponent},
+  {path: "producao", component: ProducaoComponent}
 ];
 
 @NgModule({
