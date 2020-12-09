@@ -1,0 +1,43 @@
+<div class="row" id="Title">
+    <h1><i id="IconTitle" class="pi pi-align-left"></i>Cadastro de Animal</h1>
+</div>
+
+<div class="p-fluid p-grid p-formgrid">
+    <div class="p-field p-col-12 p-sm-4 p-md-4">
+        <label id="labelInput">Status</label>
+        <p-dropdown placeholder="Selecione o status" [showClear]="true"></p-dropdown>
+    </div>
+    <div class="p-field p-col-12 p-sm-4 p-md-4">
+        <label id="labelInput">Raça</label>
+        <p-dropdown placeholder="Selecione a raça" [showClear]="true"></p-dropdown>
+    </div>
+    <div class="p-field p-col-12 p-sm-4 p-md-4">
+        <label id="labelInput">Tipo de Alimento</label>
+        <p-dropdown placeholder="Selecione o alimento" [showClear]="true"></p-dropdown>
+    </div>
+</div>
+
+<div class="p-fluid p-grid p-formgrid">
+    <div class="p-field p-col-12 p-sm-4 p-md-4">
+        <label id="labelInput">Matricula</label>
+        <p-inputNumber mode="decimal" [useGrouping]="false"></p-inputNumber>
+    </div>
+    <div class="p-field p-col-12 p-sm-4 p-md-4">
+        <label id="labelInput">Origem</label>
+        <p-dropdown placeholder="Selecione a Origem" [showClear]="true"></p-dropdown>
+    </div>
+    <div class="p-field p-col-12 p-sm-4 p-md-4">
+        <label id="labelInput">Data de Nascimento</label>
+        <p-calendar dateFormat="dd/mm/yy"
+            [monthNavigator]="true" [yearNavigator]="true" yearRange="1940:2050"
+            placeholder="dd/mm/aaaa"></p-calendar>
+    </div>
+</div>
+
+<p id="InputAnexos">Descrição de acontecimentos</p>
+<p-editor [style]="{'height':'320px'}"></p-editor>
+
+<div class="row" id="buttons">
+    <button pButton pRipple id="buttonLimpar" type="button" label="Limpar" class="p-button-danger" icon="pi pi-trash" iconPos="left"></button>
+    <button pButton pRipple type="button" label="Salvar" class="p-button-sucess" icon="pi pi-check" iconPos="left"></button>    
+</div>

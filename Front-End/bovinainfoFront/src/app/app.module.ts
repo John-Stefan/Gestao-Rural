@@ -37,6 +37,8 @@ import { EmissaoPatrimonioComponent } from './emissao-patrimonio/emissao-patrimo
 import { CadastroPatrimonioComponent } from './cadastro-patrimonio/cadastro-patrimonio.component';
 import { RegistroComponent } from './registro/registro.component';
 import { ProducaoComponent } from './producao/producao.component';
+import { CadastroAnimalComponent } from './cadastro-animal/cadastro-animal.component';
+import { EmissaoAnimalComponent } from './emissao-animal/emissao-animal.component';
 
 
 @NgModule({
@@ -50,7 +52,9 @@ import { ProducaoComponent } from './producao/producao.component';
     FooterComponent,
     HomeComponent,
     RegistroComponent,
-    ProducaoComponent
+    ProducaoComponent,
+    CadastroAnimalComponent,
+    EmissaoAnimalComponent
   ],
   imports: [
     BrowserModule,

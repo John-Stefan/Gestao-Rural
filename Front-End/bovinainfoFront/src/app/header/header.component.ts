@@ -57,7 +57,8 @@ export class HeaderComponent implements OnInit {
             routerLink: 'cadastro-patrimonio'
           },
           {
-            label: 'Animais'
+            label: 'Animais',
+            routerLink: 'cadastro-animal'
           }
         ]
       },
@@ -75,7 +76,8 @@ export class HeaderComponent implements OnInit {
             routerLink: 'emissao-patrimonio'
           },
           {
-            label: 'Animais'
+            label: 'Animais',
+            routerLink: 'emissao-animal'
           }
         ]
       }

@@ -7,6 +7,8 @@ import {EmissaoPatrimonioComponent } from './emissao-patrimonio/emissao-patrimon
 import { HomeComponent } from './home/home.component';
 import { RegistroComponent } from './registro/registro.component';
 import { ProducaoComponent } from './producao/producao.component';
+import { CadastroAnimalComponent } from './cadastro-animal/cadastro-animal.component';
+import { EmissaoAnimalComponent } from './emissao-animal/emissao-animal.component';
 
 const routes: Routes = [
   {path: "", pathMatch: "full", redirectTo: "home"},
@@ -16,7 +18,9 @@ const routes: Routes = [
   {path: "cadastro-patrimonio", component: CadastroPatrimonioComponent},
   {path: "emissao-patrimonio", component: EmissaoPatrimonioComponent},
   {path: "registro", component: RegistroComponent},
-  {path: "producao", component: ProducaoComponent}
+  {path: "producao", component: ProducaoComponent},
+  {path: "cadastro-animal", component: CadastroAnimalComponent},
+  {path: "emissao-animal", component: EmissaoAnimalComponent}
 ];
 
 @NgModule({
