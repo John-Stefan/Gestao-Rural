@@ -13,19 +13,19 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-@Entity
+@Entity //Entity já faz com q a tabela seja criada automaticamente.
 @Table(name = "patrimonio")
 public class Patrimonio {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;	
+	@GeneratedValue(strategy = GenerationType.IDENTITY) //Campo ID gerado automaticamente.
+	private long id;	
 
 	@Column(name = "nome_fazenda")
 	private String nome_fazenda;
 	
 	@Column(name = "tamanho_alqueire")
-	private BigDecimal tamanho_patrimonio;
+	private BigDecimal tamanho_alqueire;
 	
 	@OneToOne(cascade = CascadeType.ALL)
 	private Endereco endereco;
@@ -34,11 +34,12 @@ public class Patrimonio {
 	@JoinColumn(name = "pat_fk_pes")
 	private Pessoa pessoa;
 	
-	public int getId() {
+	//getters e setters.
+	public long getId() { //Verificar pq não está long.
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 
@@ -50,12 +51,12 @@ public class Patrimonio {
 		this.nome_fazenda = nome_fazenda;
 	}
 
-	public BigDecimal getTamanho_patrimonio() {
-		return tamanho_patrimonio;
+	public BigDecimal getTamanho_alqueire() {
+		return tamanho_alqueire;
 	}
 
-	public void setTamanho_patrimonio(BigDecimal tamanho_patrimonio) {
-		this.tamanho_patrimonio = tamanho_patrimonio;
+	public void setTamanho_alqueire(BigDecimal tamanho_alqueire) {
+		this.tamanho_alqueire = tamanho_alqueire;
 	}
 
 	public Endereco getEndereco() {
@@ -65,7 +66,7 @@ public class Patrimonio {
 	public void setEndereco(Endereco endereco) {
 		this.endereco = endereco;
 	}
-
+	
 	public Pessoa getPessoa() {
 		return pessoa;
 	}
