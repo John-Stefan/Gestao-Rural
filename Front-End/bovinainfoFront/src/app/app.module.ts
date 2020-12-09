@@ -19,6 +19,7 @@ import { MessagesModule } from 'primeng/messages';
 import { MessageModule } from 'primeng/message';
 import { ToastModule } from 'primeng/toast';
 import { TabMenuModule } from 'primeng/tabmenu';
+import { DropdownModule } from 'primeng/dropdown';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -30,6 +31,7 @@ import { HomeComponent } from './home/home.component';
 import { FuncionarioService } from './funcionario.service';
 import { MessageService } from 'primeng/api';
 import { ConfirmationService } from 'primeng/api';
+import { RegistroComponent } from './registro/registro.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +40,8 @@ import { ConfirmationService } from 'primeng/api';
     EmissaoFuncionarioComponent,
     HeaderComponent,
     FooterComponent,
-    HomeComponent   
+    HomeComponent,
+    RegistroComponent   
   ],
   imports: [
     BrowserModule,
@@ -61,7 +64,8 @@ import { ConfirmationService } from 'primeng/api';
     MessagesModule,
     MessageModule,
     ToastModule,
-    TabMenuModule    
+    TabMenuModule,
+    DropdownModule
   ],
   providers: [FuncionarioService, MessageService, ConfirmationService],
   bootstrap: [AppComponent]
