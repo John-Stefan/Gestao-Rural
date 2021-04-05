@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Cadastro de Pessoas</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item id="labelName">
+    <ion-label position="floating">Nome</ion-label>
+    <ion-input placeholder="Digite seu nome" [(ngModel)]="pessoa.nome"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">CPF</ion-label>
+    <ion-input placeholder="Digite seu CPF" [(ngModel)]="pessoa.cpf"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Data de Nascimento</ion-label>
+    <ion-input placeholder="Digite sua Data de Nascimento" [(ngModel)]="pessoa.data_nascimento"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">E-Mail</ion-label>
+    <ion-input placeholder="Digite seu E-Mail" [(ngModel)]="pessoa.email"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Telefone</ion-label>
+    <ion-input placeholder="Digite seu Telefone" [(ngModel)]="pessoa.telefone"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">CEP</ion-label>
+    <ion-input placeholder="Digite seu CEP" [(ngModel)]="pessoa.endereco.cep"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Logradouro</ion-label>
+    <ion-input placeholder="Digite seu logradouro" [(ngModel)]="pessoa.endereco.logradouro"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Complemento</ion-label>
+    <ion-input placeholder="Digite seu complemento" [(ngModel)]="pessoa.endereco.complemento"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Numero</ion-label>
+    <ion-input placeholder="Digite seu numero" [(ngModel)]="pessoa.endereco.numero"></ion-input>
+  </ion-item>
+</ion-content>
+
+<div id="button">
+  <ion-button color="danger" style="padding-right: 2%;" (click)="apagarFormulario()">Apagar</ion-button>
+  <ion-button color="success" (click)="setPessoa()">Salvar</ion-button>
+</div>
