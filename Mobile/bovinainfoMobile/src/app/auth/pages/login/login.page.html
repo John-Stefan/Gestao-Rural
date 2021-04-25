@@ -12,10 +12,10 @@
           <ion-icon name='person' color='success' slot='start'></ion-icon>
           <ion-input type='text' placeholder='Nome' formControlName="name"></ion-input>
           <ion-note slot="end" color="danger" *ngIf="name.dirty && name.hasError('required')">
-            Senha obrigatória
+            Nome obrigatório
           </ion-note>
           <ion-note slot="end" color="danger" *ngIf="name.dirty && name.hasError('minlength')">
-            Mínimo 6 caracteres
+            Nome inválido
           </ion-note>
         </ion-item>
       </ng-container>
