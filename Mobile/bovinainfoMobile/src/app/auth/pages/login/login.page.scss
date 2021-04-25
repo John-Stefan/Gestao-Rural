@@ -1,0 +1,48 @@
+#LogoLabel {
+  text-align: center;
+  font-size: 2.3rem;
+  padding-top: 5%;
+  text-transform: uppercase;
+  color: #ffffff;
+  text-shadow: 1px 1px 1px #000000, 1px 2px 1px #000000, 1px 3px 1px #000000,
+    2px 2px 1px #000000, 2px 4px 1px #000000, 1px 1px 1px rgba(0, 0, 0, 0.4),
+    1px 1px 1px rgba(0, 0, 0, 0.4), 1px 1px 1px rgba(0, 0, 0, 0.4),
+    1px 1px 1px rgba(0, 0, 0, 0.4);
+}
+
+#LetraStyle {
+  color: rgb(128, 231, 24);
+}
+
+#container {
+  text-align: center;
+
+  position: absolute;
+  left: 5%;
+  right: 5%;
+  top: 55%;
+  transform: translateY(-50%);
+}
+
+#inputEmail {
+  border-radius: 1rem;
+}
+
+#inputClosed {
+  border-radius: 1rem;
+  margin-top: 3%;
+}
+
+#buttons {
+  margin-bottom: 3%;
+}
+
+#StyleNewAccont {
+  color: rgb(152, 214, 58);
+}
+
+#rodape {
+  padding-bottom: 7%;
+}
+
+
