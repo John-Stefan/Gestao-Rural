@@ -46,14 +46,15 @@
 </ion-content>
 
 <ion-footer class="ion-padding" id="rodape">
-  <ion-button expand='block' id="buttons" color='success' [disabled]="authForm.invalid" (click)="onSubmit()">{{
+  <ion-button expand='block' id="buttons" color='success' [disabled]="authForm.invalid"
+    (click)="onSubmit(authProviders.Email)">{{
     configs.action }}
   </ion-button>
   <ion-button expand='block' fill='clear' id="buttons" (click)="changeAuthAction()">
     <p id="StyleNewAccont">{{ configs.actionChange }}
     <p>
   </ion-button>
-  <ion-button expand='block' color='success'>
+  <ion-button expand='block' color='success' (click)="onSubmit(authProviders.Facebook)">
     <ion-icon name='logo-facebook' slot="start"></ion-icon>
     Entrar com o Facebook
   </ion-button>
