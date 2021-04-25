@@ -1,6 +1,8 @@
+/* eslint-disable @typescript-eslint/semi */
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import firebase from 'firebase';
+import { Observable } from 'rxjs';
 import { AuthOptions, AuthProvider, User } from './auth.types';
 
 @Injectable({
@@ -8,7 +10,11 @@ import { AuthOptions, AuthProvider, User } from './auth.types';
 })
 export class AuthService {
 
-  constructor(private afAuth: AngularFireAuth) { }
+  authState$: Observable<firebase.User>;
+
+  constructor(private afAuth: AngularFireAuth) {
+    this.authState$ = this.afAuth.authState;
+  }
 
   public authenticate({ isSignIn, provider, user }: AuthOptions): Promise<firebase.auth.UserCredential> {
     let operation: Promise<firebase.auth.UserCredential>;
