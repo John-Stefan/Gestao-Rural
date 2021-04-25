@@ -1,12 +1,16 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-
-
+import { BrowserModule } from '@angular/platform-browser';
+import { RouteReuseStrategy } from '@angular/router';
+import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 
 @NgModule({
-  declarations: [],
   imports: [
-    CommonModule
-  ]
+    IonicModule.forRoot()
+  ],
+  exports: [
+    BrowserModule,
+    IonicModule
+  ],
+  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
 })
 export class CoreModule { }
