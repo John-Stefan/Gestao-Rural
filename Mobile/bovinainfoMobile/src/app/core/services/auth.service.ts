@@ -1,3 +1,5 @@
+/* eslint-disable no-var */
+/* eslint-disable prefer-arrow/prefer-arrow-functions */
 /* eslint-disable @typescript-eslint/semi */
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
@@ -5,6 +7,7 @@ import firebase from 'firebase';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { AuthOptions, AuthProvider, User } from './auth.types';
+import { Platform } from '@ionic/angular';
 
 @Injectable({
   providedIn: 'root'
@@ -25,7 +28,8 @@ export class AuthService {
     let operation: Promise<firebase.auth.UserCredential>;
 
     if (provider !== AuthProvider.Email) {
-      operation = this.signInWithPopup(provider);
+      //operation = this.signInWithPopup(provider);
+      operation = this.signInWithRedirect();
     } else {
       operation = isSignIn ? this.signInWithEmail(user) : this.signUpWithEmail(user);
     }
@@ -61,5 +65,10 @@ export class AuthService {
     }
 
     return this.afAuth.signInWithPopup(signInProvider);
+  }
+
+  private signInWithRedirect(): Promise<firebase.auth.UserCredential> {
+    this.afAuth.signInWithRedirect(new firebase.auth.FacebookAuthProvider());
+    return this.afAuth.getRedirectResult();
   }
 }
