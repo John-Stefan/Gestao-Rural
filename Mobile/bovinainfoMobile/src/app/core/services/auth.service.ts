@@ -28,8 +28,8 @@ export class AuthService {
     let operation: Promise<firebase.auth.UserCredential>;
 
     if (provider !== AuthProvider.Email) {
-      //operation = this.signInWithPopup(provider);
-      operation = this.signInWithRedirect();
+      operation = this.signInWithPopup(provider);
+      //operation = this.signInWithRedirect();
     } else {
       operation = isSignIn ? this.signInWithEmail(user) : this.signUpWithEmail(user);
     }
