@@ -1,7 +1,7 @@
 {
   "name": "bovinainfoMobile",
   "integrations": {
-    "capacitor": {}
+    "cordova": {}
   },
   "type": "angular"
 }
