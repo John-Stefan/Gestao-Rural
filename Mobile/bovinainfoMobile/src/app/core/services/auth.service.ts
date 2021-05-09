@@ -17,7 +17,6 @@ export class AuthService {
 
   constructor(private afAuth: AngularFireAuth) {
     this.authState$ = this.afAuth.authState;
-    this.logout();
   }
 
   get isAuthenticated(): Observable<boolean> {
@@ -29,7 +28,6 @@ export class AuthService {
 
     if (provider !== AuthProvider.Email) {
       operation = this.signInWithPopup(provider);
-      //operation = this.signInWithRedirect();
     } else {
       operation = isSignIn ? this.signInWithEmail(user) : this.signUpWithEmail(user);
     }
@@ -65,10 +63,5 @@ export class AuthService {
     }
 
     return this.afAuth.signInWithPopup(signInProvider);
-  }
-
-  private signInWithRedirect(): Promise<firebase.auth.UserCredential> {
-    this.afAuth.signInWithRedirect(new firebase.auth.FacebookAuthProvider());
-    return this.afAuth.getRedirectResult();
   }
 }
