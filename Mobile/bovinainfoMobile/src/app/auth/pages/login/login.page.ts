@@ -3,6 +3,8 @@
 /* eslint-disable @typescript-eslint/member-ordering */
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
+import { NavController } from '@ionic/angular';
 import { AuthService } from 'src/app/core/services/auth.service';
 import { AuthProvider } from 'src/app/core/services/auth.types';
 
@@ -21,7 +23,7 @@ export class LoginPage implements OnInit {
   };
   private nameControl = new FormControl('', [Validators.required, Validators.minLength(3)]);
 
-  constructor(private authService: AuthService, private fb: FormBuilder) { }
+  constructor(private authService: AuthService, private fb: FormBuilder, private route: ActivatedRoute, private navCtrl: NavController) { }
 
   ngOnInit(): void {
     this.createForm();
@@ -63,8 +65,7 @@ export class LoginPage implements OnInit {
         user: this.authForm.value,
         provider
       });
-      console.log('Authenticate: ', credentials);
-      console.log('Redirecting...');
+      this.navCtrl.navigateForward(this.route.snapshot.queryParamMap.get('redirect') || '/pessoas');
     } catch (e) {
       console.log('Auth error: ', e);
     }

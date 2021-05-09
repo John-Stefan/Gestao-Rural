@@ -22,7 +22,7 @@ export class AuthGuard implements CanActivate, CanActivateChild, CanLoad {
   }
 
   canLoad(route: Route, segments: UrlSegment[]): Observable<boolean> {
-    const url = segments.map(s => '/${s}').join('');
+    const url = segments.map(s => `/${s}`).join('');
     return this.checkAuthState(url).pipe(take(1));
   }
 
