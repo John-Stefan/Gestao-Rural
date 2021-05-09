@@ -10,7 +10,12 @@ const routes: Routes = [
     path: '',
     redirectTo: 'login',
     pathMatch: 'full'
+  },
+  {
+    path: 'pessoas',
+    loadChildren: () => import('./pessoas/pessoas.module').then(m => m.PessoasModule)
   }
+
 ];
 
 @NgModule({
