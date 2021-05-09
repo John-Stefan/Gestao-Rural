@@ -7,7 +7,6 @@ import firebase from 'firebase';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { AuthOptions, AuthProvider, User } from './auth.types';
-import { Platform } from '@ionic/angular';
 
 @Injectable({
   providedIn: 'root'
@@ -18,6 +17,7 @@ export class AuthService {
 
   constructor(private afAuth: AngularFireAuth) {
     this.authState$ = this.afAuth.authState;
+    this.logout();
   }
 
   get isAuthenticated(): Observable<boolean> {
