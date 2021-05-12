@@ -1,20 +1,16 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-
-import { IonicModule } from '@ionic/angular';
-
 import { PessoasListPageRoutingModule } from './pessoas-list-routing.module';
 
 import { PessoasListPage } from './pessoas-list.page';
+import { SharedModule } from 'src/app/shared/shared.module';
+import { ComponentsModule } from '../../components/components.module';
 
 @NgModule({
   imports: [
-    CommonModule,
-    FormsModule,
-    IonicModule,
+    SharedModule,
+    ComponentsModule,
     PessoasListPageRoutingModule
   ],
   declarations: [PessoasListPage]
 })
-export class PessoasListPageModule {}
+export class PessoasListPageModule { }
