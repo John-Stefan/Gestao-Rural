@@ -3,7 +3,7 @@
 import { AngularFirestore, AngularFirestoreCollection, QueryFn } from "@angular/fire/firestore";
 import { Observable } from "rxjs";
 
-export abstract class Firestore<T> {
+export abstract class Firestore<T extends { id: string }> {
 
   protected collection: AngularFirestoreCollection<T>;
 
@@ -13,7 +13,19 @@ export abstract class Firestore<T> {
     this.collection = path ? this.db.collection(path, queryFn) : null;
   }
 
+  private setItem(item: T, operation: 'set' | 'update'): Promise<T> {
+    return this.collection
+      .doc<T>(item.id)
+    [operation](item)
+      .then(() => item);
+  }
+
   public getAll(): Observable<T[]> {
     return this.collection.valueChanges();
+  }
+
+  public create(item: T): Promise<T> {
+    item.id = this.db.createId();
+    return this.setItem(item, 'set');
   }
 }
