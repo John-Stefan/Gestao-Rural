@@ -18,6 +18,7 @@ export class PessoasService extends Firestore<Pessoa> {
     this.authService.authState$.subscribe(user => {
       if (user) {
         this.setCollection(`/users/${user.uid}/pessoas`);
+        return;
       }
       this.setCollection(null);
     });
