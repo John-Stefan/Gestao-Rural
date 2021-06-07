@@ -12,6 +12,10 @@ const routes: Routes = [
         loadChildren: () => import('./pages/pessoa-save/pessoa-save.module').then(m => m.PessoaSavePageModule)
       },
       {
+        path: 'edit/:id',
+        loadChildren: () => import('./pages/pessoa-save/pessoa-save.module').then(m => m.PessoaSavePageModule)
+      },
+      {
         path: '',
         loadChildren: () => import('./pages/pessoas-list/pessoas-list.module').then(m => m.PessoasListPageModule)
       }
