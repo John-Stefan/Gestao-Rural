@@ -7,7 +7,7 @@
 <ion-content class="ion-padding">
   <ion-list *ngIf="(pessoas$ | async) as pessoas">
     <ng-container *ngIf="pessoas.length > 0; else noPessoas">
-      <app-pessoa-item *ngFor="let pessoa of pessoas" [pessoa]="pessoa"></app-pessoa-item>
+      <app-pessoa-item *ngFor="let pessoa of pessoas" [pessoa]="pessoa" (update)="onUpdate($event)"></app-pessoa-item>
     </ng-container>
     <ng-template #noPessoas>
       <ion-item lines="none">Ainda não existem pessoas cadastradas...</ion-item>

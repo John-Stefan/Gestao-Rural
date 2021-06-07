@@ -1,6 +1,7 @@
 /* eslint-disable @angular-eslint/use-lifecycle-interface */
 import { Component, OnInit } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
+import { NavController } from '@ionic/angular';
 import { Observable, of } from 'rxjs';
 import { Pessoa } from '../../models/pessoa.model';
 import { PessoasService } from '../../services/pessoas.service';
@@ -14,9 +15,13 @@ export class PessoasListPage {
 
   pessoas$: Observable<Pessoa[]>;
 
-  constructor(private pessoasService: PessoasService) { }
+  constructor(private navCtrl: NavController, private pessoasService: PessoasService) { }
 
   ionViewDidEnter(): void {
     this.pessoas$ = this.pessoasService.getAll();
+  }
+
+  onUpdate(pessoa: Pessoa): void {
+    this.navCtrl.navigateForward(['pessoas', 'edit', pessoa.id]);
   }
 }
