@@ -73,6 +73,8 @@ export class LoginPage implements OnInit {
       this.navCtrl.navigateForward(this.route.snapshot.queryParamMap.get('redirect') || '/pessoas');
     } catch (e) {
       console.log('Auth error: ', e);
+    } finally {
+      loading.dismiss();
     }
 
   }
