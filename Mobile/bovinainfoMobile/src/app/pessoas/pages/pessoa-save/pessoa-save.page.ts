@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/member-ordering */
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { PessoasService } from '../../services/pessoas.service';
 
 @Component({
   selector: 'app-pessoa-save',
@@ -11,7 +12,7 @@ export class PessoaSavePage implements OnInit {
 
   pessoaForm: FormGroup;
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder, private pessoasService: PessoasService) { }
 
   ngOnInit() {
     this.createForm();
@@ -31,7 +32,12 @@ export class PessoaSavePage implements OnInit {
     });
   }
 
-  onSubmit(): void {
-    console.log('Pessoa: ', this.pessoaForm.value);
+  async onSubmit(): Promise<void> {
+    try {
+      const pessoa = await this.pessoasService.create(this.pessoaForm.value);
+      console.log('Pessoa criada: ', this.pessoaForm.value);
+    } catch (error) {
+      console.log('Erro ao salvar pessoa: ', error);
+    }
   }
 }
