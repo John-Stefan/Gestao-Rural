@@ -8,46 +8,48 @@
 </ion-header>
 
 <ion-content>
-  <ion-item id="labelName">
-    <ion-label position="floating">Nome</ion-label>
-    <ion-input placeholder="Digite seu nome"></ion-input>
-  </ion-item>
-  <ion-item id="inputs">
-    <ion-label position="floating">CPF</ion-label>
-    <ion-input placeholder="Digite seu CPF"></ion-input>
-  </ion-item>
-  <ion-item id="inputs">
-    <ion-label position="floating">Data de Nascimento</ion-label>
-    <ion-input placeholder="Digite sua Data de Nascimento"></ion-input>
-  </ion-item>
-  <ion-item id="inputs">
-    <ion-label position="floating">E-Mail</ion-label>
-    <ion-input placeholder="Digite seu E-Mail"></ion-input>
-  </ion-item>
-  <ion-item id="inputs">
-    <ion-label position="floating">Telefone</ion-label>
-    <ion-input placeholder="Digite seu Telefone"></ion-input>
-  </ion-item>
-  <ion-item id="inputs">
-    <ion-label position="floating">CEP</ion-label>
-    <ion-input placeholder="Digite seu CEP"></ion-input>
-  </ion-item>
-  <ion-item id="inputs">
-    <ion-label position="floating">Logradouro</ion-label>
-    <ion-input placeholder="Digite seu logradouro"></ion-input>
-  </ion-item>
-  <ion-item id="inputs">
-    <ion-label position="floating">Complemento</ion-label>
-    <ion-input placeholder="Digite seu complemento"></ion-input>
-  </ion-item>
-  <ion-item id="inputs">
-    <ion-label position="floating">Numero</ion-label>
-    <ion-input placeholder="Digite seu numero"></ion-input>
-  </ion-item>
+  <form [formGroup]="pessoaForm">
+    <ion-item id="labelName">
+      <ion-label position="floating">Nome</ion-label>
+      <ion-input placeholder="Digite seu nome" formControlName="nome"></ion-input>
+    </ion-item>
+    <ion-item id="inputs">
+      <ion-label position="floating">CPF</ion-label>
+      <ion-input placeholder="Digite seu CPF" formControlName="cpf"></ion-input>
+    </ion-item>
+    <ion-item id="inputs">
+      <ion-label position="floating">Data de Nascimento</ion-label>
+      <ion-input placeholder="Digite sua Data de Nascimento" formControlName="dataNascimento"></ion-input>
+    </ion-item>
+    <ion-item id="inputs">
+      <ion-label position="floating">E-Mail</ion-label>
+      <ion-input placeholder="Digite seu E-Mail" formControlName="email"></ion-input>
+    </ion-item>
+    <ion-item id="inputs">
+      <ion-label position="floating">Telefone</ion-label>
+      <ion-input placeholder="Digite seu Telefone" formControlName="telefone"></ion-input>
+    </ion-item>
+    <ion-item id="inputs">
+      <ion-label position="floating">CEP</ion-label>
+      <ion-input placeholder="Digite seu CEP" formControlName="cep"></ion-input>
+    </ion-item>
+    <ion-item id="inputs">
+      <ion-label position="floating">Logradouro</ion-label>
+      <ion-input placeholder="Digite seu logradouro" formControlName="logradouro"></ion-input>
+    </ion-item>
+    <ion-item id="inputs">
+      <ion-label position="floating">Complemento</ion-label>
+      <ion-input placeholder="Digite seu complemento" formControlName="complemento"></ion-input>
+    </ion-item>
+    <ion-item id="inputs">
+      <ion-label position="floating">Numero</ion-label>
+      <ion-input placeholder="Digite seu numero" formControlName="numero"></ion-input>
+    </ion-item>
+  </form>
 </ion-content>
 
 <div id="button">
-  <ion-button color="success" expand="block">
+  <ion-button color="success" expand="block" [disabled]='pessoaForm.invalid' (click)="onSubmit()">
     Salvar
   </ion-button>
   <ion-button color="danger" expand="block">
