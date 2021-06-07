@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 /* eslint-disable @typescript-eslint/no-unused-expressions */
 /* eslint-disable @typescript-eslint/consistent-type-assertions */
 /* eslint-disable @typescript-eslint/member-ordering */
@@ -7,6 +8,7 @@ import { ActivatedRoute } from '@angular/router';
 import { NavController } from '@ionic/angular';
 import { AuthService } from 'src/app/core/services/auth.service';
 import { AuthProvider } from 'src/app/core/services/auth.types';
+import { OverlayService } from 'src/app/core/services/overlay.service';
 
 @Component({
   selector: 'app-login',
@@ -23,7 +25,7 @@ export class LoginPage implements OnInit {
   };
   private nameControl = new FormControl('', [Validators.required, Validators.minLength(3)]);
 
-  constructor(private authService: AuthService, private fb: FormBuilder, private route: ActivatedRoute, private navCtrl: NavController) { }
+  constructor(private authService: AuthService, private fb: FormBuilder, private route: ActivatedRoute, private navCtrl: NavController, private overlayService: OverlayService) { }
 
   ngOnInit(): void {
     this.createForm();
@@ -59,6 +61,9 @@ export class LoginPage implements OnInit {
   }
 
   async onSubmit(provider: AuthProvider): Promise<void> {
+    const loading = await this.overlayService.loading({
+      message: 'Carregando...'
+    });
     try {
       const credentials = await this.authService.authenticate({
         isSignIn: this.configs.isSignIn,
