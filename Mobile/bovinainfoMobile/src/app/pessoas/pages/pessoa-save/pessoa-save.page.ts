@@ -2,6 +2,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NavController } from '@ionic/angular';
+import { OverlayService } from 'src/app/core/services/overlay.service';
 import { PessoasService } from '../../services/pessoas.service';
 
 @Component({
@@ -14,7 +15,7 @@ export class PessoaSavePage implements OnInit {
   pessoaForm: FormGroup;
 
   constructor(
-    private fb: FormBuilder, private pessoasService: PessoasService, private navCtrl: NavController
+    private fb: FormBuilder, private pessoasService: PessoasService, private navCtrl: NavController, private overlayService: OverlayService
   ) { }
 
   ngOnInit() {
@@ -36,12 +37,20 @@ export class PessoaSavePage implements OnInit {
   }
 
   async onSubmit(): Promise<void> {
+    const loading = await this.overlayService.loading({
+      message: 'Salvando...'
+    });
     try {
       const pessoa = await this.pessoasService.create(this.pessoaForm.value);
       console.log('Pessoa criada: ', this.pessoaForm.value);
       this.navCtrl.navigateBack('/pessoas');
     } catch (error) {
       console.log('Erro ao salvar pessoa: ', error);
+      await this.overlayService.toast({
+        message: error.message
+      });
+    } finally {
+      loading.dismiss();
     }
   }
 }
