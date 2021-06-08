@@ -34,7 +34,6 @@ export class PessoaSavePage implements OnInit {
       return;
     }
     this.pessoaId = pessoaId;
-    console.log('pessoaId: ', pessoaId);
     this.pageTitle = 'Emissão de Pessoa';
     this.pessoasService.get(pessoaId)
       .pipe(take(1))
@@ -70,8 +69,10 @@ export class PessoaSavePage implements OnInit {
       message: 'Salvando...'
     });
     try {
-      const pessoa = await this.pessoasService.create(this.pessoaForm.value);
-      console.log('Pessoa criada: ', this.pessoaForm.value);
+      const pessoa = !this.pessoaId ? await this.pessoasService.create(this.pessoaForm.value) : await this.pessoasService.update({
+        id: this.pessoaId,
+        ...this.pessoaForm.value
+      });
       this.navCtrl.navigateBack('/pessoas');
     } catch (error) {
       console.log('Erro ao salvar pessoa: ', error);
