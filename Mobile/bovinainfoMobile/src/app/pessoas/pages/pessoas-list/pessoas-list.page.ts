@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { NavController } from '@ionic/angular';
 import { Observable, of } from 'rxjs';
+import { take } from 'rxjs/operators';
 import { OverlayService } from 'src/app/core/services/overlay.service';
 import { Pessoa } from '../../models/pessoa.model';
 import { PessoasService } from '../../services/pessoas.service';
@@ -18,8 +19,10 @@ export class PessoasListPage {
 
   constructor(private navCtrl: NavController, private overlayService: OverlayService, private pessoasService: PessoasService) { }
 
-  ionViewDidEnter(): void {
+  async ionViewDidEnter(): Promise<void> {
+    const loading = await this.overlayService.loading();
     this.pessoas$ = this.pessoasService.getAll();
+    this.pessoas$.pipe(take(1)).subscribe(pessoas => loading.dismiss());
   }
 
   onUpdate(pessoa: Pessoa): void {

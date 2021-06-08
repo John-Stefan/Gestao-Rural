@@ -61,9 +61,7 @@ export class LoginPage implements OnInit {
   }
 
   async onSubmit(provider: AuthProvider): Promise<void> {
-    const loading = await this.overlayService.loading({
-      message: 'Carregando...'
-    });
+    const loading = await this.overlayService.loading();
     try {
       const credentials = await this.authService.authenticate({
         isSignIn: this.configs.isSignIn,
@@ -76,6 +74,5 @@ export class LoginPage implements OnInit {
     } finally {
       loading.dismiss();
     }
-
   }
 }
