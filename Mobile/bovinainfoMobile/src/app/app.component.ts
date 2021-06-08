@@ -1,5 +1,7 @@
 /* eslint-disable @typescript-eslint/member-delimiter-style */
 import { Component } from '@angular/core';
+import firebase from 'firebase';
+import { AuthService } from './core/services/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -8,6 +10,15 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
 
-  constructor() { }
+  user: firebase.User;
 
+  constructor(
+    private authService: AuthService
+  ) {
+    this.initializeApp();
+  }
+
+  initializeApp() {
+    this.authService.authState$.subscribe(user => (this.user = user));
+  }
 }
