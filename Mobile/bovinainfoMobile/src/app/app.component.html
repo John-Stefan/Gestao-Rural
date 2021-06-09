@@ -14,10 +14,20 @@
             <ion-icon slot="start" name="person-sharp"></ion-icon>
             <ion-label>Pessoas</ion-label>
           </ion-item>
-          <ion-item button routerLink="/pessoas/create" routerDirection="forward">
-            <ion-icon slot="start" name="person-add-sharp"></ion-icon>
-            <ion-label>Cadastro de Pessoa</ion-label>
+          <ion-item button routerLink="/patrimonios" routerDirection="back">
+            <ion-icon slot="start" name="home"></ion-icon>
+            <ion-label>Patrimonios</ion-label>
           </ion-item>
+          <ion-item-group>
+            <ion-item button routerLink="/pessoas/create" routerDirection="forward">
+              <ion-icon slot="start" name="person-add-sharp"></ion-icon>
+              <ion-label>Cadastro de Pessoa</ion-label>
+            </ion-item>
+            <ion-item button routerLink="/patrimonios/create" routerDirection="forward">
+              <ion-icon slot="start" name="home"></ion-icon>
+              <ion-label>Cadastro de Patrimonio</ion-label>
+            </ion-item>
+          </ion-item-group>
         </ion-menu-toggle>
       </ion-list>
     </ion-content>
