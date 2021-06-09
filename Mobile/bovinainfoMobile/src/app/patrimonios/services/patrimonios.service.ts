@@ -11,5 +11,16 @@ export class PatrimoniosService extends Firestore<Patrimonio> {
 
   constructor(private authService: AuthService, db: AngularFirestore) {
     super(db);
+    this.init();
+  }
+
+  private init(): void {
+    this.authService.authState$.subscribe(user => {
+      if (user) {
+        this.setCollection(`/users/${user.uid}/patrimonios`, ref => ref.orderBy('user', 'asc'));
+        return;
+      }
+      this.setCollection(null);
+    });
   }
 }
