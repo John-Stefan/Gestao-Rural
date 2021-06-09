@@ -1,9 +1,24 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>patrimonios-list</ion-title>
+  <ion-toolbar color="success">
+    <app-menu-toggle slot="start" menu="main-menu"></app-menu-toggle>
+    <ion-title>Patrimonios</ion-title>
+    <app-logout-button slot="end" menu="main-menu"></app-logout-button>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content class="ion-padding">
+  <ion-list *ngIf="(patrimonios$ | async) as patrimonios">
+    <ng-container *ngIf="patrimonios.length > 0; else noPatrimonios">
+      <app-patrimonio-item *ngFor="let patrimonio of patrimonios" [patrimonio]="patrimonio"></app-patrimonio-item>
+    </ng-container>
+    <ng-template #noPatrimonios>
+      <ion-item lines="none">Ainda não existem patrimonios cadastrados...</ion-item>
+    </ng-template>
+  </ion-list>
 
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button color="success">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 </ion-content>

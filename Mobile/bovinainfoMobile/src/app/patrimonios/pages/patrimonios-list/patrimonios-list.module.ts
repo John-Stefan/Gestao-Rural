@@ -3,7 +3,7 @@ import { PatrimoniosListPageRoutingModule } from './patrimonios-list-routing.mod
 
 import { PatrimoniosListPage } from './patrimonios-list.page';
 import { SharedModule } from 'src/app/shared/shared.module';
-import { ComponentsModule } from 'src/app/pessoas/components/components.module';
+import { ComponentsModule } from 'src/app/patrimonios/components/components.module';
 
 @NgModule({
   imports: [
