@@ -19,7 +19,7 @@ const routes: Routes = [
   },
   {
     path: 'patrimonios',
-    loadChildren: () => import('./patrimonios/pages/patrimonios-list/patrimonios-list.module').then(m => m.PatrimoniosListPageModule)
+    loadChildren: () => import('./patrimonios/patrimonios.module').then(m => m.PatrimoniosModule)
   }
 
 
