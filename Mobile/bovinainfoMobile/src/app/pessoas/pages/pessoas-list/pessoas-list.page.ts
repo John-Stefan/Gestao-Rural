@@ -37,7 +37,7 @@ export class PessoasListPage {
           handler: async () => {
             await this.pessoasService.delete(pessoa);
             await this.overlayService.toast({
-              message: `A pessoa "${pessoa.nome}" foi apagada!`,
+              message: `A pessoa "${pessoa.nome}" foi apagado!`,
               color: 'success'
             });
           }
