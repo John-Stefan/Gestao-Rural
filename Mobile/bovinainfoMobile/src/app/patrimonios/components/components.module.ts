@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
-import { PessoaItemComponent } from './pessoa-item/pessoa-item.component';
+import { PatrimonioItemComponent } from './patrimonio-item/patrimonio-item.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 
 @NgModule({
-  declarations: [PessoaItemComponent],
+  declarations: [PatrimonioItemComponent],
   imports: [SharedModule],
-  exports: [PessoaItemComponent]
+  exports: [PatrimonioItemComponent]
 })
 export class ComponentsModule { }
