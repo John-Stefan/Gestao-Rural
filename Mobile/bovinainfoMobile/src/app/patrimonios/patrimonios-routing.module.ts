@@ -8,14 +8,18 @@ const routes: Routes = [
     canActivateChild: [AuthGuard],
     children: [
       {
+        path: 'create',
+        loadChildren: () => import('./pages/patrimonio-save/patrimonio-save.module').then(m => m.PatrimonioSavePageModule)
+      },
+      {
+        path: 'edit/:id',
+        loadChildren: () => import('./pages/patrimonio-save/patrimonio-save.module').then(m => m.PatrimonioSavePageModule)
+      },
+      {
         path: '',
         loadChildren: () => import('./pages/patrimonios-list/patrimonios-list.module').then(m => m.PatrimoniosListPageModule)
       }
     ]
-  },
-  {
-    path: 'patrimonio-save',
-    loadChildren: () => import('./pages/patrimonio-save/patrimonio-save.module').then( m => m.PatrimonioSavePageModule)
   }
 ];
 

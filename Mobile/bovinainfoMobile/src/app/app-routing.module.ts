@@ -19,10 +19,9 @@ const routes: Routes = [
   },
   {
     path: 'patrimonios',
-    loadChildren: () => import('./patrimonios/patrimonios.module').then(m => m.PatrimoniosModule)
+    loadChildren: () => import('./patrimonios/patrimonios.module').then(m => m.PatrimoniosModule),
+    canLoad: [AuthGuard]
   }
-
-
 ];
 
 @NgModule({
