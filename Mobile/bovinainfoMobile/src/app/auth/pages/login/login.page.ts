@@ -68,7 +68,7 @@ export class LoginPage implements OnInit {
         user: this.authForm.value,
         provider
       });
-      this.navCtrl.navigateForward(this.route.snapshot.queryParamMap.get('redirect') || '/pessoas');
+      this.navCtrl.navigateForward(this.route.snapshot.queryParamMap.get('redirect') || '/home');
     } catch (e) {
       console.log('Auth error: ', e);
     } finally {

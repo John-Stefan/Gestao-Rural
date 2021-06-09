@@ -21,6 +21,11 @@ const routes: Routes = [
     path: 'patrimonios',
     loadChildren: () => import('./patrimonios/patrimonios.module').then(m => m.PatrimoniosModule),
     canLoad: [AuthGuard]
+  },
+  {
+    path: 'home',
+    loadChildren: () => import('./home/home.module').then(m => m.HomeModule),
+    canLoad: [AuthGuard]
   }
 ];
 
