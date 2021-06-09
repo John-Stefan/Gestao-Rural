@@ -22,7 +22,10 @@
     "@angular/router": "~11.2.0",
     "@ionic/angular": "^5.5.2",
     "cordova-android": "9.1.0",
+<<<<<<< HEAD
     "firebase": "^8.4.2",
+=======
+>>>>>>> main
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.2"
@@ -82,4 +85,8 @@
       "android"
     ]
   }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> main
