@@ -17,7 +17,8 @@ export class PatrimoniosService extends Firestore<Patrimonio> {
   private init(): void {
     this.authService.authState$.subscribe(user => {
       if (user) {
-        this.setCollection(`/users/${user.uid}/patrimonios`, ref => ref.orderBy('user', 'asc'));
+        this.setCollection(`/users/${user.uid}/patrimonios`, ref =>
+          ref.orderBy('nomeFazenda', 'asc'));
         return;
       }
       this.setCollection(null);

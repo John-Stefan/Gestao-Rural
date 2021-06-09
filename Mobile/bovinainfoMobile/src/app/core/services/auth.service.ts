@@ -17,7 +17,6 @@ export class AuthService {
 
   constructor(private afAuth: AngularFireAuth) {
     this.authState$ = this.afAuth.authState;
-    //this.logout();
   }
 
   get isAuthenticated(): Observable<boolean> {
