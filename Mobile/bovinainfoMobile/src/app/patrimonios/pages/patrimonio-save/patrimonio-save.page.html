@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-toolbar color="success">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/pessoas"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{ pageTitle }}</ion-title>
+    <app-logout-button slot="end" menu="main-menu"></app-logout-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="patrimonioForm">
+    <ion-item id="labelName">
+      <ion-label position="floating">Nome da Fazenda</ion-label>
+      <ion-input placeholder="Digite o nome da fazenda" formControlName="nomeFazenda"></ion-input>
+    </ion-item>
+    <ion-item id="inputs">
+      <ion-label position="floating">Tamanho do Patrimonio</ion-label>
+      <ion-input placeholder="Digite o tamanho do patrimonio" formControlName="tamanhoPatrimonio"></ion-input>
+    </ion-item>
+    <ion-item id="inputs">
+      <ion-label position="floating">Proprietario</ion-label>
+      <ion-input placeholder="Digite o nome do Proprietario" formControlName="proprietario"></ion-input>
+    </ion-item>
+    <ion-item id="inputs">
+      <ion-label position="floating">CEP</ion-label>
+      <ion-input placeholder="Digite o CEP" formControlName="cep"></ion-input>
+    </ion-item>
+    <ion-item id="inputs">
+      <ion-label position="floating">Logradouro</ion-label>
+      <ion-input placeholder="Digite o Logradouro" formControlName="logradouro"></ion-input>
+    </ion-item>
+    <ion-item id="inputs">
+      <ion-label position="floating">Complemento</ion-label>
+      <ion-input placeholder="Digite o Complemento" formControlName="complemento"></ion-input>
+    </ion-item>
+    <ion-item id="inputs">
+      <ion-label position="floating">Numero</ion-label>
+      <ion-input placeholder="Digite o Numero" formControlName="numero"></ion-input>
+    </ion-item>
+  </form>
+</ion-content>
+
+<div id="button">
+  <ion-button color="success" expand="block" [disabled]='patrimonioForm.invalid' (click)="onSubmit()">
+    Salvar
+  </ion-button>
+  <ion-button color="danger" expand="block">
+    Limpar
+  </ion-button>
+</div>

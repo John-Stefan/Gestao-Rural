@@ -1,0 +1,77 @@
+<ion-content class="ion-padding">
+  <ion-grid>
+    <ion-row class="ion-justify-content-center">
+      <ion-col size-xs="12" size-sm="8" size-md="4" size="3" size-xl="3">
+        <div id="LogoLabel">
+          <p style="font-family: Impact, Charcoal, Helvetica Inserat,
+                 Bitstream Vera Sans Bold, Arial Black, sans serif;">B<a id="LetraStyle">o</a>vi<a
+              id="LetraStyle">n</a>a
+            I<a id="LetraStyle">n</a>f<a id="LetraStyle">o</a></p>
+        </div>
+
+        <div id="container">
+          <form [formGroup]="authForm">
+            <div id="InputSize"></div>
+            <ng-container *ngIf="!configs.isSignIn">
+              <ion-item id="inputClosed">
+                <ion-icon name='person' color='success' slot='start'></ion-icon>
+                <ion-input type='text' placeholder='Nome' formControlName="name"></ion-input>
+                <ion-note slot="end" color="danger" *ngIf="name.dirty && name.hasError('required')">
+                  Nome obrigatório
+                </ion-note>
+                <ion-note slot="end" color="danger" *ngIf="name.dirty && name.hasError('minlength')">
+                  Nome inválido
+                </ion-note>
+              </ion-item>
+            </ng-container>
+
+            <ion-item id="inputEmail">
+              <ion-icon name='mail' color='success' slot='start'></ion-icon>
+              <ion-input type='email' placeholder='Email' formControlName="email" inputmode="email" autofocus='true'>
+              </ion-input>
+              <ion-note slot="end" color="danger" *ngIf="email.dirty && email.hasError('required')">
+                Email obrigatório
+              </ion-note>
+              <ion-note slot="end" color="danger" *ngIf="email.dirty && email.hasError('email')">
+                Email inválido
+              </ion-note>
+            </ion-item>
+            <ion-item id="inputClosed">
+              <ion-icon name='lock-closed' color='success' slot='start'></ion-icon>
+              <ion-input type='password' placeholder='Senha' formControlName="password"></ion-input>
+              <ion-note slot="end" color="danger" *ngIf="password.dirty && password.hasError('required')">
+                Senha obrigatória
+              </ion-note>
+              <ion-note slot="end" color="danger" *ngIf="password.dirty && password.hasError('minlength')">
+                Mínimo 6 caracteres
+              </ion-note>
+            </ion-item>
+          </form>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>
+
+<ion-footer class="ion-padding" id="rodape">
+  <ion-grid>
+    <ion-row class="ion-justify-content-center">
+      <ion-col size-xs="12" size-sm="8" size-md="4" size="3" size-xl="3">
+        <ion-button expand='full' id="buttons" color='success' [disabled]="authForm.invalid"
+          (click)="onSubmit(authProviders.Email)">{{
+          configs.action }}
+        </ion-button>
+        <ion-button expand='full' fill='clear' id="buttons" (click)="changeAuthAction()">
+          <p id="StyleNewAccont">{{ configs.actionChange }}
+          <p>
+        </ion-button>
+        <ion-button expand='full' color='success' (click)="onSubmit(authProviders.Facebook)">
+          <ion-icon name='logo-facebook' slot="start"></ion-icon>
+          Entrar com o Facebook
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-footer>

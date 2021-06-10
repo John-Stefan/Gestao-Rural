@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar color="success">
+    <app-menu-toggle slot="start" menu="main-menu"></app-menu-toggle>
+    <ion-title>Pessoas</ion-title>
+    <app-logout-button slot="end" menu="main-menu"></app-logout-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-list *ngIf="(pessoas$ | async) as pessoas">
+    <ng-container *ngIf="pessoas.length > 0; else noPessoas">
+      <app-pessoa-item *ngFor="let pessoa of pessoas" [pessoa]="pessoa" (update)="onUpdate($event)"
+        (delete)="onDelete($event)"></app-pessoa-item>
+    </ng-container>
+    <ng-template #noPessoas>
+      <ion-item lines="none">Ainda não existem pessoas cadastradas...</ion-item>
+    </ng-template>
+  </ion-list>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button color="success" routerLink="/pessoas/create" routerDirection="forward">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

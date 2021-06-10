@@ -1,0 +1,59 @@
+<ion-header>
+  <ion-toolbar color="success">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/pessoas"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{ pageTitle }}</ion-title>
+    <app-logout-button slot="end" menu="main-menu"></app-logout-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="pessoaForm">
+    <ion-item id="labelName">
+      <ion-label position="floating">Nome</ion-label>
+      <ion-input placeholder="Digite seu nome" formControlName="nome"></ion-input>
+    </ion-item>
+    <ion-item id="inputs">
+      <ion-label position="floating">CPF</ion-label>
+      <ion-input placeholder="Digite seu CPF" formControlName="cpf"></ion-input>
+    </ion-item>
+    <ion-item id="inputs">
+      <ion-label position="floating">Data de Nascimento</ion-label>
+      <ion-input placeholder="Digite sua Data de Nascimento" formControlName="dataNascimento"></ion-input>
+    </ion-item>
+    <ion-item id="inputs">
+      <ion-label position="floating">E-Mail</ion-label>
+      <ion-input placeholder="Digite seu E-Mail" formControlName="email"></ion-input>
+    </ion-item>
+    <ion-item id="inputs">
+      <ion-label position="floating">Telefone</ion-label>
+      <ion-input placeholder="Digite seu Telefone" formControlName="telefone"></ion-input>
+    </ion-item>
+    <ion-item id="inputs">
+      <ion-label position="floating">CEP</ion-label>
+      <ion-input placeholder="Digite seu CEP" formControlName="cep"></ion-input>
+    </ion-item>
+    <ion-item id="inputs">
+      <ion-label position="floating">Logradouro</ion-label>
+      <ion-input placeholder="Digite seu logradouro" formControlName="logradouro"></ion-input>
+    </ion-item>
+    <ion-item id="inputs">
+      <ion-label position="floating">Complemento</ion-label>
+      <ion-input placeholder="Digite seu complemento" formControlName="complemento"></ion-input>
+    </ion-item>
+    <ion-item id="inputs">
+      <ion-label position="floating">Numero</ion-label>
+      <ion-input placeholder="Digite seu numero" formControlName="numero"></ion-input>
+    </ion-item>
+  </form>
+</ion-content>
+
+<div id="button">
+  <ion-button color="success" expand="block" [disabled]='pessoaForm.invalid' (click)="onSubmit()">
+    Salvar
+  </ion-button>
+  <ion-button color="danger" expand="block">
+    Limpar
+  </ion-button>
+</div>
