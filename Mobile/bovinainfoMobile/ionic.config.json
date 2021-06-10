@@ -1,0 +1,7 @@
+{
+  "name": "bovinainfoMobile",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}
