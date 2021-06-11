@@ -26,7 +26,11 @@ const routes: Routes = [
     path: 'home',
     loadChildren: () => import('./home/home.module').then(m => m.HomeModule),
     canLoad: [AuthGuard]
+  },  {
+    path: 'registros-list',
+    loadChildren: () => import('./registros/pages/registros-list/registros-list.module').then( m => m.RegistrosListPageModule)
   }
+
 ];
 
 @NgModule({
