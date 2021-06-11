@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
-import { Firestore } from '../core/classes/firestore.class';
-import { AuthService } from '../core/services/auth.service';
-import { Registro } from '../registros/models/registro.model';
+import { Firestore } from 'src/app/core/classes/firestore.class';
+import { AuthService } from 'src/app/core/services/auth.service';
+import { Registro } from '../models/registro.model';
 
 @Injectable({
   providedIn: 'root'
