@@ -7,14 +7,13 @@ import { IonicModule } from '@ionic/angular';
 import { RegistrosListPageRoutingModule } from './registros-list-routing.module';
 
 import { RegistrosListPage } from './registros-list.page';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 @NgModule({
   imports: [
-    CommonModule,
-    FormsModule,
-    IonicModule,
+    SharedModule,
     RegistrosListPageRoutingModule
   ],
   declarations: [RegistrosListPage]
 })
-export class RegistrosListPageModule {}
+export class RegistrosListPageModule { }
