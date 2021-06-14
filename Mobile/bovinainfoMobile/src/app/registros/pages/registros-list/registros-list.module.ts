@@ -8,10 +8,12 @@ import { RegistrosListPageRoutingModule } from './registros-list-routing.module'
 
 import { RegistrosListPage } from './registros-list.page';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { ComponentsModule } from '../../components/components.module';
 
 @NgModule({
   imports: [
     SharedModule,
+    ComponentsModule,
     RegistrosListPageRoutingModule
   ],
   declarations: [RegistrosListPage]
