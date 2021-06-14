@@ -17,9 +17,9 @@ export class RegistrosService extends Firestore<Registro> {
   private init(): void {
     this.authService.authState$.subscribe(user => {
       if (user) {
-        this.setCollection(`/users/${user.uid}/pessoas`);
+        this.setCollection(`/users/${user.uid}/registros`);
+        return;
       }
-      return;
       this.setCollection(null);
     });
   }
