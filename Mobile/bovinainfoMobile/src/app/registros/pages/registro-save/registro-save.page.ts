@@ -30,7 +30,7 @@ export class RegistroSavePage implements OnInit {
   init(): void {
     const registroId = this.route.snapshot.paramMap.get('id');
     if (!registroId) {
-      this.pageTitle = 'Cadastro do Registro';
+      this.pageTitle = 'Inserção de Registro';
       return;
     }
     this.registroId = registroId;
@@ -63,6 +63,7 @@ export class RegistroSavePage implements OnInit {
         id: this.registroId,
         ...this.registroForm.value
       });
+      this.navCtrl.navigateBack('/registros');
     } catch (error) {
       console.log('Erro ao salvar o registro: ', error);
       await this.overlayService.toast({
