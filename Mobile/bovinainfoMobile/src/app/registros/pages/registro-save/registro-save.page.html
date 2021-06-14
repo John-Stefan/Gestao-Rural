@@ -1,9 +1,39 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>registro-save</ion-title>
+  <ion-toolbar color="success">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/registros"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{ pageTitle }}</ion-title>
+    <app-logout-button slot="end" menu="main-menu"></app-logout-button>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+  <form [formGroup]="registroForm">
+    <ion-item id="labelName">
+      <ion-label position="floating">Pessoa</ion-label>
+      <ion-input placeholder="Digite a Pessoa" formControlName="pessoa"></ion-input>
+    </ion-item>
+    <ion-item id="inputs">
+      <ion-label position="floating">Temperatura</ion-label>
+      <ion-input placeholder="Digite a Temperatura" formControlName="temperatura"></ion-input>
+    </ion-item>
+    <ion-item id="inputs">
+      <ion-label position="floating">Umidade</ion-label>
+      <ion-input placeholder="Digite a Umidade" formControlName="umidade"></ion-input>
+    </ion-item>
+    <ion-item id="inputs">
+      <ion-label position="floating">Data da Produção</ion-label>
+      <ion-input placeholder="Digite a data da produção" formControlName="dataProducao"></ion-input>
+    </ion-item>
+  </form>
 </ion-content>
+
+<div id="button">
+  <ion-button color="success" expand="block" [disabled]='registroForm.invalid' (click)="onSubmit()">
+    Salvar
+  </ion-button>
+  <ion-button color="danger" expand="block">
+    Limpar
+  </ion-button>
+</div>
