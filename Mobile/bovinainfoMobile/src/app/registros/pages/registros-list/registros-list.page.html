@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar color="success">
+    <app-menu-toggle slot="start" menu="main-menu"></app-menu-toggle>
+    <ion-title>Registros</ion-title>
+    <app-logout-button slot="end" menu="main-menu"></app-logout-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-list *ngIf="(registros$ | async) as registros">
+    <ng-container *ngIf="registros.length > 0; else noRegistros">
+      <app-registro-item *ngFor="let registro of registros" [registro]="registro" (update)="onUpdate($event)"
+        (delete)="onDelete($event)"></app-registro-item>
+    </ng-container>
+    <ng-template #noRegistros>
+      <ion-item lines="none">Ainda não existem registros cadastrados...</ion-item>
+    </ng-template>
+  </ion-list>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button color="success" routerLink="/registros/create" routerDirection="forward">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>
