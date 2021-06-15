@@ -28,15 +28,20 @@ const routes: Routes = [
     canLoad: [AuthGuard]
   },
   {
+    path: 'animais',
+    loadChildren: () => import('./animais/animais.module').then(m => m.AnimaisModule),
+    canLoad: [AuthGuard]
+  }, 
+  {
     path: 'registros',
     loadChildren: () => import('./registros/registros.module').then(m => m.RegistrosModule),
     canLoad: [AuthGuard]
   },
   {
     path: 'producoes',
-    loadChildren: () => import('./producoes/producoes.module').then(m => m.ProducoesModule)
-  }
-
+    loadChildren: () => import('./producoes/producoes.module').then(m => m.ProducoesModule),
+    canLoad: [AuthGuard]
+  }  
 ];
 
 @NgModule({

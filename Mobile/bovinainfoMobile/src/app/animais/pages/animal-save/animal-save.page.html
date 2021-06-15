@@ -1,0 +1,93 @@
+<ion-header>
+  <ion-toolbar color="success">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/animais"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{ pageTitle }}</ion-title>
+    <app-logout-button slot="end" menu="main-menu"></app-logout-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="animalForm">
+    <ion-item id="labelName">
+      <ion-label position="floating">Status</ion-label>
+      <ion-select placeholder="Selecione o status" formControlName="status">
+        <ion-select-option value="alugado">Alugado</ion-select-option>
+        <ion-select-option value="ativo">Ativo</ion-select-option>
+        <ion-select-option value="inativo">Inativo</ion-select-option>
+        <ion-select-option value="meia">Meia</ion-select-option>
+        <ion-select-option value="tratamento">Tratamento</ion-select-option>
+        <ion-select-option value="vendido">Vendido</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item id="inputs">
+      <ion-label position="floating">Raça</ion-label>
+      <ion-select placeholder="Selecione a raça" formControlName="raca" >
+      <ion-select-option value="nenhum">Nenhum</ion-select-option>
+      <ion-select-option value="angus">Angus</ion-select-option>
+      <ion-select-option value="holsteinFrisia">Holstein-Frísia</ion-select-option>
+      <ion-select-option value="racaSimental">Raça Simental</ion-select-option>
+      <ion-select-option value="hereford">Hereford</ion-select-option>
+      <ion-select-option value="limousin">Limousin</ion-select-option>
+      <ion-select-option value="gelbvieh">Gelbvieh</ion-select-option>
+      <ion-select-option value="gadoGalloway">Gado Galloway</ion-select-option>
+      <ion-select-option value="chianina">Chianina</ion-select-option>
+      <ion-select-option value="brownSwiss">Brown Swiss</ion-select-option>
+      <ion-select-option value="devon">Devon</ion-select-option>
+      <ion-select-option value="redPoll">Red Poll</ion-select-option>
+      <ion-select-option value="englishLonghorn">English Longhorn</ion-select-option>
+      <ion-select-option value="redAngus">Red Angus</ion-select-option>
+      <ion-select-option value="maineAnjou">Maine-Anjou</ion-select-option>
+      <ion-select-option value="beltedGalloway">Belted Galloway</ion-select-option>
+      <ion-select-option value="milkingShorthorn">Milking Shorthorn</ion-select-option>
+      <ion-select-option value="braford">Braford</ion-select-option>
+      <ion-select-option value="whitePark">White Park</ion-select-option>
+      <ion-select-option value="azulBelga">Azul Belga</ion-select-option>
+      <ion-select-option value="britishWhite">British White</ion-select-option>
+      <ion-select-option value="tarentaise">Tarentaise</ion-select-option>
+      <ion-select-option value="americanBreed">American Breed</ion-select-option>
+      <ion-select-option value="southDevon">South Devon</ion-select-option>
+      <ion-select-option value="dutchBelted">Dutch Belted</ion-select-option>
+    </ion-select>
+    </ion-item>
+
+    <ion-item id="inputs">
+      <ion-label position="floating">Tipo de Alimento</ion-label>
+      <ion-select placeholder="Selecione o alimento" formControlName="tipoAlimentacao">
+      <ion-select-option value="pasto">Pasto</ion-select-option>
+      <ion-select-option value="racao">Ração</ion-select-option>
+      <ion-select-option value="silagem">Silagem</ion-select-option>
+    </ion-select>
+    </ion-item>
+
+    <ion-item id="inputs">
+      <ion-label position="floating">Matrícula</ion-label>
+      <ion-input placeholder="Informe a matrícula" formControlName="matricula"></ion-input>
+    </ion-item>
+
+    <ion-item id="inputs">
+      <ion-label position="floating">Origem</ion-label>
+      <ion-select placeholder="Selecione a origem" formControlName="origem" >
+      <ion-select-option value="compra">Compra</ion-select-option>
+      <ion-select-option value="criacao">Criação</ion-select-option>
+      <ion-select-option value="gestacao">Gestação</ion-select-option>
+    </ion-select>
+    </ion-item>
+
+    <ion-item id="inputs">
+      <ion-label position="floating">Data de Nascimento</ion-label>
+      <ion-input placeholder="dd/mm/aaaa" formControlName="dataNascimento"></ion-input>
+    </ion-item>
+  </form>
+</ion-content>
+
+<div id="button">
+  <ion-button color="success" expand="block" [disabled]='animalForm.invalid' (click)="onSubmit()">
+    Salvar
+  </ion-button>
+  <ion-button color="danger" expand="block">
+    Limpar
+  </ion-button>
+</div>
