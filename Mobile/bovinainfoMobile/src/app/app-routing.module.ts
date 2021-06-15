@@ -13,6 +13,11 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
+    path: 'home',
+    loadChildren: () => import('./home/home.module').then(m => m.HomeModule),
+    canLoad: [AuthGuard]
+  },
+  {
     path: 'pessoas',
     loadChildren: () => import('./pessoas/pessoas.module').then(m => m.PessoasModule),
     canLoad: [AuthGuard]
@@ -23,8 +28,8 @@ const routes: Routes = [
     canLoad: [AuthGuard]
   },
   {
-    path: 'home',
-    loadChildren: () => import('./home/home.module').then(m => m.HomeModule),
+    path: 'registros',
+    loadChildren: () => import('./registros/registros.module').then(m => m.RegistrosModule),
     canLoad: [AuthGuard]
   },
   {

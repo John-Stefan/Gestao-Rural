@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/semi */
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { TestBed, waitForAsync } from '@angular/core/testing';
 
