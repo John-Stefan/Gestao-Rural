@@ -1,9 +1,25 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>producoes-list</ion-title>
+  <ion-toolbar color="success">
+    <app-menu-toggle slot="start" menu="main-menu"></app-menu-toggle>
+    <ion-title>Produções</ion-title>
+    <app-logout-button slot="end" menu="main-menu"></app-logout-button>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content class="ion-padding">
+  <ion-list *ngIf="(producoes$ | async) as producoes">
+    <ng-container *ngIf="producoes.length > 0; else noProducoes">
+      <app-producao-item *ngFor="let producao of producoes" [producao]="producao" (update)="onUpdate($event)"
+        (delete)="onDelete($event)"></app-producao-item>
+    </ng-container>
+    <ng-template #noProducoes>
+      <ion-item lines="none">Ainda não existem produções inseridas...</ion-item>
+    </ng-template>
+  </ion-list>
 
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button color="success" routerLink="/producoes/create" routerDirection="forward">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 </ion-content>
