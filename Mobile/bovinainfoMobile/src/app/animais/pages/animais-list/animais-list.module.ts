@@ -1,20 +1,22 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+//import { NgModule } from '@angular/core';
+//import { AnimaisListPageRoutingModule } from './animais-list-routing.module';
 
-import { IonicModule } from '@ionic/angular';
-
+//import { AnimaisListPage } from './animais-list.page';
+//import { SharedModule } from 'src/app/shared/shared.module';
+//import { ComponentsModule } from '../../components/components.module';
+import { ComponentsModule } from 'src/app/animais/components/components.module';
 import { AnimaisListPageRoutingModule } from './animais-list-routing.module';
-
+import { NgModule } from '@angular/core';
 import { AnimaisListPage } from './animais-list.page';
+import { SharedModule } from 'src/app/shared/shared.module';
+
 
 @NgModule({
   imports: [
-    CommonModule,
-    FormsModule,
-    IonicModule,
+    SharedModule,
+    ComponentsModule,
     AnimaisListPageRoutingModule
   ],
   declarations: [AnimaisListPage]
 })
-export class AnimaisListPageModule {}
+export class AnimaisListPageModule { }

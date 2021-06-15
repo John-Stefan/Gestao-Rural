@@ -1,9 +1,25 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>animais-list</ion-title>
+  <ion-toolbar color="success">
+    <app-menu-toggle slot="start" menu="main-menu"></app-menu-toggle>
+    <ion-title>Animais</ion-title>
+    <app-logout-button slot="end" menu="main-menu"></app-logout-button>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content class="ion-padding">
+  <ion-list *ngIf="(animais$ | async) as animais">
+    <ng-container *ngIf="animais.length > 0; else noAnimais">
+      <app-animal-item *ngFor="let animal of animais" [animal]="animal" (update)="onUpdate($event)"
+        (delete)="onDelete($event)"></app-animal-item>
+    </ng-container>
+    <ng-template #noAnimais>
+      <ion-item lines="none">Ainda não existem animais cadastrados...</ion-item>
+    </ng-template>
+  </ion-list>
 
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button color="success" routerLink="/animais/create" routerDirection="forward">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 </ion-content>

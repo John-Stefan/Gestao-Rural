@@ -26,9 +26,11 @@ const routes: Routes = [
     path: 'home',
     loadChildren: () => import('./home/home.module').then(m => m.HomeModule),
     canLoad: [AuthGuard]
-  },  {
-    path: 'animais-list',
-    loadChildren: () => import('./animais/pages/animais-list/animais-list.module').then( m => m.AnimaisListPageModule)
+  },
+  {
+    path: 'animais',
+    loadChildren: () => import('./animais/animais.module').then(m => m.AnimaisModule),
+    canLoad: [AuthGuard]
   }
 
 ];
