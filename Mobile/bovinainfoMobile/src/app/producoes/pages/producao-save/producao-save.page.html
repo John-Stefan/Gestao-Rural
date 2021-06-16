@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-toolbar color="success">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/pessoas"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{ pageTitle }}</ion-title>
+    <app-logout-button slot="end" menu="main-menu"></app-logout-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="producaoForm">
+    <ion-item id="labelName">
+      <ion-label position="floating">Registro</ion-label>
+      <ion-input placeholder="Digite o registro" formControlName="registro"></ion-input>
+    </ion-item>
+    <ion-item id="inputs">
+      <ion-label position="floating">Inicio da produção</ion-label>
+      <ion-input placeholder="Digite a data do inicio da produção" formControlName="dataInicioProducao"></ion-input>
+    </ion-item>
+    <ion-item id="inputs">
+      <ion-label position="floating">Fim da produção</ion-label>
+      <ion-input placeholder="Digite a data do fim da produção" formControlName="dataFimProducao"></ion-input>
+    </ion-item>
+    <ion-item id="inputs">
+      <ion-label position="floating">Animal</ion-label>
+      <ion-input placeholder="Digite o id do animal" formControlName="animal"></ion-input>
+    </ion-item>
+    <ion-item id="inputs">
+      <ion-label position="floating">Quantidade de leite</ion-label>
+      <ion-input placeholder="Digite a quantidade de leite" formControlName="quantidadeLeite"></ion-input>
+    </ion-item>
+    <ion-item id="inputs">
+      <ion-label position="floating">Peso</ion-label>
+      <ion-input placeholder="Digite o peso do animal" formControlName="peso"></ion-input>
+    </ion-item>
+    <ion-item id="inputs">
+      <ion-label position="floating">Nota do animal</ion-label>
+      <ion-input placeholder="Digite a nota do animal" formControlName="notaAnimal"></ion-input>
+    </ion-item>
+  </form>
+</ion-content>
+
+<div id="button">
+  <ion-button color="success" expand="block" [disabled]='producaoForm.invalid' (click)="onSubmit()">
+    Salvar
+  </ion-button>
+  <ion-button color="danger" expand="block">
+    Limpar
+  </ion-button>
+</div>
