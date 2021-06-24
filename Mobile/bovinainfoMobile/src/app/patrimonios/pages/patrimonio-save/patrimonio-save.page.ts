@@ -4,8 +4,11 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { NavController } from '@ionic/angular';
+import { Observable } from 'rxjs';
 import { take } from 'rxjs/operators';
 import { OverlayService } from 'src/app/core/services/overlay.service';
+import { Pessoa } from 'src/app/pessoas/models/pessoa.model';
+import { PessoasService } from 'src/app/pessoas/services/pessoas.service';
 import { PatrimoniosService } from '../../services/patrimonios.service';
 
 @Component({
@@ -14,23 +17,27 @@ import { PatrimoniosService } from '../../services/patrimonios.service';
   styleUrls: ['./patrimonio-save.page.scss'],
 })
 export class PatrimonioSavePage implements OnInit {
+  pessoas$: Observable<Pessoa[]>;
   patrimonioForm: FormGroup;
   pageTitle = '...';
   patrimonioId: string = undefined;
 
   constructor(
-    private fb: FormBuilder, private patrimoniosService: PatrimoniosService, private navCtrl: NavController, private overlayService: OverlayService, private route: ActivatedRoute
+    private fb: FormBuilder, private patrimoniosService: PatrimoniosService, private pessoasService: PessoasService, private navCtrl: NavController, private overlayService: OverlayService, private route: ActivatedRoute
   ) { }
 
-  ngOnInit() {
+  ngOnInit() {    
     this.createForm();
-    this.init();
+    this.init();        
   }
 
-  init(): void {
+  init(): void {        
+    this.pessoas$ = this.pessoasService.getAll();
+    this.pessoas$.pipe(take(1)); 
+    
     const patrimonioId = this.route.snapshot.paramMap.get('id');
     if (!patrimonioId) {
-      this.pageTitle = 'Cadastro de Patrimonio';
+      this.pageTitle = 'Cadastro de Patrimonio'; 
       return;
     }
     this.patrimonioId = patrimonioId;
@@ -45,7 +52,7 @@ export class PatrimonioSavePage implements OnInit {
         this.patrimonioForm.get('logradouro').setValue(logradouro);
         this.patrimonioForm.get('complemento').setValue(complemento);
         this.patrimonioForm.get('numero').setValue(numero);
-      });
+      });  
   }
 
   private createForm(): void {

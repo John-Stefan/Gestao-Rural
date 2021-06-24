@@ -20,8 +20,14 @@
     </ion-item>
     <ion-item id="inputs">
       <ion-label position="floating">Proprietario</ion-label>
-      <ion-input placeholder="Digite o nome do Proprietario" formControlName="proprietario"></ion-input>
+      <ion-select placeholder="Selecione o proprietario">
+        <ion-select-option *ngFor="let pessoa of (pessoas$ | async)">{{ pessoa.nome }}</ion-select-option>
+      </ion-select>
     </ion-item>
+    <!--<ion-item id="inputs">
+      <ion-label position="floating">Proprietario</ion-label>
+      <ion-input placeholder="Digite o nome do Proprietario" formControlName="proprietario"></ion-input>
+    </ion-item>-->
     <ion-item id="inputs">
       <ion-label position="floating">CEP</ion-label>
       <ion-input placeholder="Digite o CEP" formControlName="cep"></ion-input>
