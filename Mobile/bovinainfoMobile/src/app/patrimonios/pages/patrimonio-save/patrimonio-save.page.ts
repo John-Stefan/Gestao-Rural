@@ -1,3 +1,6 @@
+/* eslint-disable @typescript-eslint/dot-notation */
+/* eslint-disable @typescript-eslint/no-shadow */
+/* eslint-disable no-trailing-spaces */
 /* eslint-disable @typescript-eslint/member-ordering */
 /* eslint-disable max-len */
 import { Component, OnInit } from '@angular/core';
@@ -26,18 +29,20 @@ export class PatrimonioSavePage implements OnInit {
     private fb: FormBuilder, private patrimoniosService: PatrimoniosService, private pessoasService: PessoasService, private navCtrl: NavController, private overlayService: OverlayService, private route: ActivatedRoute
   ) { }
 
-  ngOnInit() {    
+  async ngOnInit(): Promise<void> {
     this.createForm();
-    this.init();        
+
+    const loading = await this.overlayService.loading();
+    this.pessoas$ = this.pessoasService.getAll();
+    this.pessoas$.pipe(take(1)).subscribe(patrimonios => loading.dismiss());
+
+    this.init();
   }
 
-  init(): void {        
-    this.pessoas$ = this.pessoasService.getAll();
-    this.pessoas$.pipe(take(1)); 
-    
+  init(): void {
     const patrimonioId = this.route.snapshot.paramMap.get('id');
     if (!patrimonioId) {
-      this.pageTitle = 'Cadastro de Patrimonio'; 
+      this.pageTitle = 'Cadastro de Patrimonio';
       return;
     }
     this.patrimonioId = patrimonioId;
@@ -47,12 +52,16 @@ export class PatrimonioSavePage implements OnInit {
       .subscribe(({ nomeFazenda, tamanhoPatrimonio, proprietario, cep, logradouro, complemento, numero }) => {
         this.patrimonioForm.get('nomeFazenda').setValue(nomeFazenda);
         this.patrimonioForm.get('tamanhoPatrimonio').setValue(tamanhoPatrimonio);
+
         this.patrimonioForm.get('proprietario').setValue(proprietario);
+        this.patrimonioForm.get('proprietario').setValidators([Validators.required]);
+        this.patrimonioForm.controls['proprietario'].updateValueAndValidity();
+
         this.patrimonioForm.get('cep').setValue(cep);
         this.patrimonioForm.get('logradouro').setValue(logradouro);
         this.patrimonioForm.get('complemento').setValue(complemento);
         this.patrimonioForm.get('numero').setValue(numero);
-      });  
+      });
   }
 
   private createForm(): void {
@@ -66,6 +75,7 @@ export class PatrimonioSavePage implements OnInit {
       numero: ['', [Validators.required]]
     });
   }
+
 
   async onSubmit(): Promise<void> {
     const loading = await this.overlayService.loading({

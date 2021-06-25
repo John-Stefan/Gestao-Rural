@@ -1,3 +1,5 @@
+/* eslint-disable eqeqeq */
+/* eslint-disable @typescript-eslint/no-unused-expressions */
 /* eslint-disable max-len */
 /* eslint-disable @typescript-eslint/member-ordering */
 import { Component, OnInit } from '@angular/core';
@@ -29,7 +31,7 @@ export class PessoaSavePage implements OnInit {
 
   init(): void {
     const pessoaId = this.route.snapshot.paramMap.get('id');
-    if (!pessoaId) {
+    if (!pessoaId || pessoaId === 'patrimonio') {
       this.pageTitle = 'Cadastro de Pessoa';
       return;
     }
@@ -65,6 +67,7 @@ export class PessoaSavePage implements OnInit {
   }
 
   async onSubmit(): Promise<void> {
+    const pessoaId = this.route.snapshot.paramMap.get('id');
     const loading = await this.overlayService.loading({
       message: 'Salvando...'
     });
@@ -73,7 +76,11 @@ export class PessoaSavePage implements OnInit {
         id: this.pessoaId,
         ...this.pessoaForm.value
       });
-      this.navCtrl.navigateBack('/pessoas');
+      if (pessoaId === 'patrimonio') {
+        this.navCtrl.navigateBack('/patrimonios/create');
+      } else {
+        this.navCtrl.navigateBack('/pessoas');
+      }
     } catch (error) {
       console.log('Erro ao salvar pessoa: ', error);
       await this.overlayService.toast({

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/dot-notation */
 /* eslint-disable @typescript-eslint/member-ordering */
 /* eslint-disable max-len */
 import { Component, OnInit } from '@angular/core';
@@ -16,7 +17,7 @@ import { AnimaisService } from '../../services/animais.service';
 export class AnimalSavePage implements OnInit {
   animalForm: FormGroup;
   pageTitle = '...';
-  animalId: string=undefined;
+  animalId: string = undefined;
 
   constructor(
     private fb: FormBuilder, private animaisService: AnimaisService, private navCtrl: NavController, private overlayService: OverlayService, private route: ActivatedRoute
@@ -37,7 +38,7 @@ export class AnimalSavePage implements OnInit {
     this.pageTitle = 'Emissão de Animal';
     this.animaisService.get(animalId)
       .pipe(take(1))
-      .subscribe(({ matricula,dataNascimento, descricaoAcontecimentos, origem, raca, status, tipoAlimentacao }) => {
+      .subscribe(({ matricula, dataNascimento, descricaoAcontecimentos, origem, raca, status, tipoAlimentacao }) => {
         this.animalForm.get('matricula').setValue(matricula);
         this.animalForm.get('descricaoAcontecimentos').setValue(descricaoAcontecimentos);
         this.animalForm.get('dataNascimento').setValue(dataNascimento);
@@ -69,7 +70,7 @@ export class AnimalSavePage implements OnInit {
       raca: ['', [Validators.required]],
       status: ['', [Validators.required]],
       tipoAlimentacao: ['', [Validators.required]]
-    })
+    });
   }
 
   async onSubmit(): Promise<void> {

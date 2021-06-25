@@ -8,6 +8,10 @@ const routes: Routes = [
     canActivateChild: [AuthGuard],
     children: [
       {
+        path: 'create/:id',
+        loadChildren: () => import('./pages/pessoa-save/pessoa-save.module').then(m => m.PessoaSavePageModule)
+      },
+      {
         path: 'create',
         loadChildren: () => import('./pages/pessoa-save/pessoa-save.module').then(m => m.PessoaSavePageModule)
       },

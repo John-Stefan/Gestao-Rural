@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/quotes */
 import { Pessoa } from "src/app/pessoas/models/pessoa.model";
 
 /* eslint-disable @typescript-eslint/no-empty-interface */
