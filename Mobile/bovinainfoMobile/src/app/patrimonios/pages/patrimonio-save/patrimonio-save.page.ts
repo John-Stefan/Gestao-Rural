@@ -52,11 +52,7 @@ export class PatrimonioSavePage implements OnInit {
       .subscribe(({ nomeFazenda, tamanhoPatrimonio, proprietario, cep, logradouro, complemento, numero }) => {
         this.patrimonioForm.get('nomeFazenda').setValue(nomeFazenda);
         this.patrimonioForm.get('tamanhoPatrimonio').setValue(tamanhoPatrimonio);
-
         this.patrimonioForm.get('proprietario').setValue(proprietario);
-        this.patrimonioForm.get('proprietario').setValidators([Validators.required]);
-        this.patrimonioForm.controls['proprietario'].updateValueAndValidity();
-
         this.patrimonioForm.get('cep').setValue(cep);
         this.patrimonioForm.get('logradouro').setValue(logradouro);
         this.patrimonioForm.get('complemento').setValue(complemento);

@@ -23,8 +23,8 @@
       <ng-container *ngIf="pessoas.length > 0; else noPessoas">
         <ion-item>
           <ion-label position="floating">Proprietario</ion-label>
-          <ion-select placeholder="Selecione o proprietario">
-            <ion-select-option *ngFor="let pessoa of pessoas" formControlName="proprietario" ngDefaultControl>{{
+          <ion-select placeholder="Selecione o proprietario" name="proprietario" formControlName="proprietario">
+            <ion-select-option *ngFor="let pessoa of pessoas">{{
               pessoa.nome }}
             </ion-select-option>
           </ion-select>
