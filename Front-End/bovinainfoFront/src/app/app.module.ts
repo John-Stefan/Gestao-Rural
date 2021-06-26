@@ -25,15 +25,15 @@ import { RatingModule } from 'primeng/rating';
 import { EditorModule } from 'primeng/editor';
 
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './header/header.component';
 import { MessageService } from 'primeng/api';
 import { ConfirmationService } from 'primeng/api';
+import { LoginComponent } from './auth/pages/login/login.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent
+    LoginComponent
   ],
   imports: [
     BrowserModule,
