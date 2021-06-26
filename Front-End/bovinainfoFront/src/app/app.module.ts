@@ -1,4 +1,3 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { MenubarModule } from 'primeng/menubar';
@@ -8,9 +7,7 @@ import { InputNumberModule } from 'primeng/inputnumber';
 import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
 import { FormsModule } from '@angular/forms';
-import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
-import { ReactiveFormsModule } from '@angular/forms';
 import { TableModule } from 'primeng/table';
 import { DialogModule } from 'primeng/dialog';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
@@ -25,18 +22,15 @@ import { RatingModule } from 'primeng/rating';
 import { EditorModule } from 'primeng/editor';
 
 import { AppComponent } from './app.component';
-import { MessageService } from 'primeng/api';
+import { MessageService, SharedModule } from 'primeng/api';
 import { ConfirmationService } from 'primeng/api';
-import { LoginComponent } from './auth/pages/login/login.component';
-
 
 @NgModule({
   declarations: [
-    AppComponent,
-    LoginComponent
+    AppComponent
   ],
   imports: [
-    BrowserModule,
+    SharedModule,
     FormsModule,
     AppRoutingModule,
     BrowserAnimationsModule,
@@ -46,9 +40,7 @@ import { LoginComponent } from './auth/pages/login/login.component';
     InputMaskModule,
     CalendarModule,
     InputNumberModule,
-    CommonModule,
     HttpClientModule,
-    ReactiveFormsModule,
     TableModule,
     DialogModule,
     ConfirmDialogModule,
