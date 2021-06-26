@@ -7,7 +7,7 @@ import { CalendarModule } from 'primeng/calendar';
 import { InputNumberModule } from 'primeng/inputnumber';
 import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
-import { FormsModule }   from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -25,54 +25,33 @@ import { RatingModule } from 'primeng/rating';
 import { EditorModule } from 'primeng/editor';
 
 import { AppComponent } from './app.component';
-import { CadastroFuncionarioComponent } from './cadastro-funcionario/cadastro-funcionario.component';
-import { EmissaoFuncionarioComponent } from './emissao-funcionario/emissao-funcionario.component';
 import { HeaderComponent } from './header/header.component';
-import { FooterComponent } from './footer/footer.component';
-import { HomeComponent } from './home/home.component';
-import { FuncionarioService } from './funcionario.service';
 import { MessageService } from 'primeng/api';
 import { ConfirmationService } from 'primeng/api';
-import { EmissaoPatrimonioComponent } from './emissao-patrimonio/emissao-patrimonio.component';
-import { CadastroPatrimonioComponent } from './cadastro-patrimonio/cadastro-patrimonio.component';
-import { RegistroComponent } from './registro/registro.component';
-import { ProducaoComponent } from './producao/producao.component';
-import { CadastroAnimalComponent } from './cadastro-animal/cadastro-animal.component';
-import { EmissaoAnimalComponent } from './emissao-animal/emissao-animal.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    CadastroFuncionarioComponent,
-    EmissaoFuncionarioComponent,
-    EmissaoPatrimonioComponent,
-    CadastroPatrimonioComponent,
-    HeaderComponent,
-    FooterComponent,
-    HomeComponent,
-    RegistroComponent,
-    ProducaoComponent,
-    CadastroAnimalComponent,
-    EmissaoAnimalComponent
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    AppRoutingModule, 
-    BrowserAnimationsModule, 
+    AppRoutingModule,
+    BrowserAnimationsModule,
     MenubarModule,
     InputTextModule,
     ButtonModule,
     InputMaskModule,
-    CalendarModule, 
+    CalendarModule,
     InputNumberModule,
     CommonModule,
     HttpClientModule,
     ReactiveFormsModule,
     TableModule,
     DialogModule,
-    ConfirmDialogModule, 
+    ConfirmDialogModule,
     DynamicDialogModule,
     MessagesModule,
     MessageModule,
@@ -82,7 +61,7 @@ import { EmissaoAnimalComponent } from './emissao-animal/emissao-animal.componen
     RatingModule,
     EditorModule
   ],
-  providers: [FuncionarioService, MessageService, ConfirmationService],
+  providers: [MessageService, ConfirmationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
