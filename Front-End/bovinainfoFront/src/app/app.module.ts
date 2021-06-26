@@ -7,7 +7,7 @@ import { CalendarModule } from 'primeng/calendar';
 import { InputNumberModule } from 'primeng/inputnumber';
 import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
-import { FormsModule }   from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -39,6 +39,7 @@ import { RegistroComponent } from './registro/registro.component';
 import { ProducaoComponent } from './producao/producao.component';
 import { CadastroAnimalComponent } from './cadastro-animal/cadastro-animal.component';
 import { EmissaoAnimalComponent } from './emissao-animal/emissao-animal.component';
+import { LoginComponent } from './auth/pages/login/login.component';
 
 
 @NgModule({
@@ -54,25 +55,26 @@ import { EmissaoAnimalComponent } from './emissao-animal/emissao-animal.componen
     RegistroComponent,
     ProducaoComponent,
     CadastroAnimalComponent,
-    EmissaoAnimalComponent
+    EmissaoAnimalComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    AppRoutingModule, 
-    BrowserAnimationsModule, 
+    AppRoutingModule,
+    BrowserAnimationsModule,
     MenubarModule,
     InputTextModule,
     ButtonModule,
     InputMaskModule,
-    CalendarModule, 
+    CalendarModule,
     InputNumberModule,
     CommonModule,
     HttpClientModule,
     ReactiveFormsModule,
     TableModule,
     DialogModule,
-    ConfirmDialogModule, 
+    ConfirmDialogModule,
     DynamicDialogModule,
     MessagesModule,
     MessageModule,
