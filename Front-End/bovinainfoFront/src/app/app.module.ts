@@ -42,6 +42,7 @@ import { EmissaoAnimalComponent } from './emissao-animal/emissao-animal.componen
 import { LoginComponent } from './auth/pages/login/login.component';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
+import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { environment } from 'src/environments/environment';
 
 
@@ -87,7 +88,8 @@ import { environment } from 'src/environments/environment';
     RatingModule,
     EditorModule,
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    ProgressSpinnerModule
   ],
   providers: [FuncionarioService, MessageService, ConfirmationService],
   bootstrap: [AppComponent]

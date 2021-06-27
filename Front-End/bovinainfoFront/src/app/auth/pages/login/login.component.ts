@@ -9,7 +9,7 @@ import { AuthProvider } from 'src/app/core/services/auth.types';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-
+  loading: boolean; //Variavel para definir quando exibir o loading
   authForm: FormGroup;
   authProviders = AuthProvider;
   configs = {
@@ -56,6 +56,7 @@ export class LoginComponent implements OnInit {
   }
 
   async onSubmit(provider: AuthProvider): Promise<void> {
+    this.loading = true;
     try {
       const credentials = await this.authService.authenticate({
         isSignIn: this.configs.isSignIn,
@@ -66,6 +67,8 @@ export class LoginComponent implements OnInit {
       console.log('Redirecting...')
     } catch (e) {
       console.log('Auth error: ', e)
+    } finally {
+      this.loading = false;
     }
   }
 }

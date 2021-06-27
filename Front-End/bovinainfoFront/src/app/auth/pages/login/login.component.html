@@ -45,4 +45,11 @@
         icon="pi pi-facebook" label="Entrar com Facebook"></button>
     </div>
   </form>
+  <!--Implementação do loading web-->
+  <p-dialog [(visible)]="loading" [showHeader]="false" [resizable]="false" [modal]="true" [focusOnShow]="false">
+    <p>Carregando...</p>
+    <div style="width: 150px;height: 110px;padding-top: 20%;">
+      <p-progressSpinner id="loading"></p-progressSpinner>
+    </div>
+  </p-dialog>
 </div>

@@ -28,3 +28,14 @@
 #buttonEntrar {
   margin-top: 3%;
 }
+/* Loading css  */
+#loading {
+  position: fixed;
+  overflow: show;
+  margin: auto;
+  top: 1;
+  left: 1;
+  bottom: 1;
+  right: 1;
+  margin-left: 11%;
+}
