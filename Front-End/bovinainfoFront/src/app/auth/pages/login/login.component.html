@@ -5,15 +5,34 @@
         id="LetraStyle">n</a>a I<a id="LetraStyle">n</a>f<a id="LetraStyle">o</a></p>
   </div>
 
-  <div class="p-fluid p-grid p-formgrid" id="container">
+  <form class="p-fluid p-grid p-formgrid" [formGroup]="authForm" (submit)="onSubmit()">
     <div class="p-field p-col-12">
       <label id="labelInput">Email</label>
-      <input class="p-inputtext-lg" type="text" placeholder="Digite seu email" pInputText>
+      <input class="p-inputtext-lg" type="email" placeholder="Digite seu email" formControlName="email" pInputText>
+      <small class="p-error" *ngIf="email.dirty && email.hasError('required')">Email obrigatorio</small>
+      <small class="p-error" *ngIf="email.dirty && email.hasError('email')">Email invalido</small>
     </div>
 
     <div class="p-field p-col-12">
       <label id="labelInput">Senha</label>
-      <input class="p-inputtext-lg" type="text" placeholder="Digite sua senha" pInputText>
+      <input class="p-inputtext-lg" type="password" placeholder="Digite sua senha" formControlName="password"
+        pInputText>
+      <small class="p-error" *ngIf="password.dirty && password.hasError('required')">Senha obrigatoria</small>
+      <small class="p-error" *ngIf="password.dirty && password.hasError('minlength')">Minimo 6 caracteres</small>
     </div>
-  </div>
+
+    <div class="p-field p-col-12">
+      <button pButton pRipple id="buttonEntrar" type="submit" class="p-button-Success" label="Entrar"
+        [disabled]="authForm.invalid"></button>
+    </div>
+
+    <div class="p-field p-col-12">
+      <button pButton pRipple type="button" class="p-button-Success" label="Criar uma nova conta"></button>
+    </div>
+
+    <div class="p-field p-col-12">
+      <button pButton pRipple type="button" class="p-button-Success" icon="pi pi-facebook"
+        label="Entrar com Facebook"></button>
+    </div>
+  </form>
 </div>
