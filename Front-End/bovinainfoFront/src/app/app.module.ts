@@ -40,6 +40,7 @@ import { CadastroAnimalComponent } from './cadastro-animal/cadastro-animal.compo
 import { EmissaoAnimalComponent } from './emissao-animal/emissao-animal.component';
 import { LoginComponent } from './auth/pages/login/login.component';
 import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { environment } from 'src/environments/environment';
@@ -90,6 +91,7 @@ import { PessoasListComponent } from './pessoas/pages/pessoas-list/pessoas-list.
     EditorModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
+    AngularFirestoreModule,
     ProgressSpinnerModule
   ],
   providers: [MessageService, ConfirmationService],
