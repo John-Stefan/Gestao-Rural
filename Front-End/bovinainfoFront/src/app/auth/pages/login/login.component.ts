@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 import { MessageService } from 'primeng/api';
 import { AuthService } from 'src/app/core/services/auth.service';
 import { AuthProvider } from 'src/app/core/services/auth.types';
@@ -21,7 +22,7 @@ export class LoginComponent implements OnInit {
 
   private nameControl = new FormControl('', [Validators.required, Validators.minLength(3)]);
 
-  constructor(private authService: AuthService, private fb: FormBuilder, private messageService: MessageService) { }
+  constructor(private authService: AuthService, private fb: FormBuilder, private messageService: MessageService, private router: Router, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.createForm();
@@ -64,8 +65,7 @@ export class LoginComponent implements OnInit {
         user: this.authForm.value,
         provider
       });
-      console.log('Authenticated: ', credentials);
-      console.log('Redirecting...')
+      this.router.navigate([this.activatedRoute.snapshot.queryParamMap.get('redirect') || '/pessoas']);
     } catch (e) {
       console.log('Auth error: ', e);
       await this.messageService.add({ severity: 'error', summary: 'Erro',  detail: 'Oh não ocorreu um erro, possivelmente suas credenciais estão invalidas, verifique e tente novamente' });

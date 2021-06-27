@@ -30,7 +30,6 @@ import { EmissaoFuncionarioComponent } from './emissao-funcionario/emissao-funci
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from './home/home.component';
-import { FuncionarioService } from './funcionario.service';
 import { MessageService } from 'primeng/api';
 import { ConfirmationService } from 'primeng/api';
 import { EmissaoPatrimonioComponent } from './emissao-patrimonio/emissao-patrimonio.component';
@@ -44,6 +43,7 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { environment } from 'src/environments/environment';
+import { PessoasListComponent } from './pessoas/pages/pessoas-list/pessoas-list.component';
 
 
 @NgModule({
@@ -60,7 +60,8 @@ import { environment } from 'src/environments/environment';
     ProducaoComponent,
     CadastroAnimalComponent,
     EmissaoAnimalComponent,
-    LoginComponent
+    LoginComponent,
+    PessoasListComponent
   ],
   imports: [
     BrowserModule,
@@ -91,7 +92,7 @@ import { environment } from 'src/environments/environment';
     AngularFireAuthModule,
     ProgressSpinnerModule
   ],
-  providers: [FuncionarioService, MessageService, ConfirmationService],
+  providers: [MessageService, ConfirmationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
