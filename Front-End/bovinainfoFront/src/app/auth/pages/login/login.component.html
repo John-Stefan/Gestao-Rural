@@ -5,7 +5,7 @@
         id="LetraStyle">n</a>a I<a id="LetraStyle">n</a>f<a id="LetraStyle">o</a></p>
   </div>
 
-  <form class="p-fluid p-grid p-formgrid" [formGroup]="authForm" (submit)="onSubmit()">
+  <form class="p-fluid p-grid p-formgrid" [formGroup]="authForm" (submit)="onSubmit(authProviders.Email)">
     <ng-container *ngIf="!configs.isSignIn">
       <div class="p-field p-col-12">
         <label id="labelInput">Nome</label>
@@ -41,8 +41,8 @@
     </div>
 
     <div class="p-field p-col-12">
-      <button pButton pRipple type="button" class="p-button-Success" icon="pi pi-facebook"
-        label="Entrar com Facebook"></button>
+      <button pButton pRipple (click)="onSubmit(authProviders.Facebook)" type="button" class="p-button-Success"
+        icon="pi pi-facebook" label="Entrar com Facebook"></button>
     </div>
   </form>
 </div>

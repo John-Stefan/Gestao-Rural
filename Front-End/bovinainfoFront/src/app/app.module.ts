@@ -40,6 +40,9 @@ import { ProducaoComponent } from './producao/producao.component';
 import { CadastroAnimalComponent } from './cadastro-animal/cadastro-animal.component';
 import { EmissaoAnimalComponent } from './emissao-animal/emissao-animal.component';
 import { LoginComponent } from './auth/pages/login/login.component';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { environment } from 'src/environments/environment';
 
 
 @NgModule({
@@ -82,7 +85,9 @@ import { LoginComponent } from './auth/pages/login/login.component';
     TabMenuModule,
     DropdownModule,
     RatingModule,
-    EditorModule
+    EditorModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireAuthModule
   ],
   providers: [FuncionarioService, MessageService, ConfirmationService],
   bootstrap: [AppComponent]
