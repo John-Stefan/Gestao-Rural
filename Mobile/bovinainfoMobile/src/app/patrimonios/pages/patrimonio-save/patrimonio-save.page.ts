@@ -41,7 +41,7 @@ export class PatrimonioSavePage implements OnInit {
 
   init(): void {
     const patrimonioId = this.route.snapshot.paramMap.get('id');
-    if (!patrimonioId) {
+    if (!patrimonioId || patrimonioId === 'animal') {
       this.pageTitle = 'Cadastro de Patrimonio';
       return;
     }
@@ -82,7 +82,12 @@ export class PatrimonioSavePage implements OnInit {
         id: this.patrimonioId,
         ...this.patrimonioForm.value
       });
-      this.navCtrl.navigateBack('/patrimonios');
+      const patrimonioId = this.route.snapshot.paramMap.get('id');
+      if (patrimonioId === 'animal') {
+        this.navCtrl.navigateBack('/animais/create');
+      } else {
+        this.navCtrl.navigateBack('/patrimonios');
+      }
     } catch (error) {
       console.log('Erro ao salvar pessoa: ', error);
       await this.overlayService.toast({

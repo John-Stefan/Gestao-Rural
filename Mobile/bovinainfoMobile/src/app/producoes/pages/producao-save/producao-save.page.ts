@@ -3,8 +3,13 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { NavController } from '@ionic/angular';
+import { Observable } from 'rxjs';
 import { take } from 'rxjs/operators';
+import { Animal } from 'src/app/animais/models/animal.model';
+import { AnimaisService } from 'src/app/animais/services/animais.service';
 import { OverlayService } from 'src/app/core/services/overlay.service';
+import { Registro } from 'src/app/registros/models/registro.model';
+import { RegistrosService } from 'src/app/registros/services/registros.service';
 import { ProducoesService } from '../../services/producoes.service';
 
 @Component({
@@ -13,14 +18,24 @@ import { ProducoesService } from '../../services/producoes.service';
   styleUrls: ['./producao-save.page.scss'],
 })
 export class ProducaoSavePage implements OnInit {
+  registros$: Observable<Registro[]>;
+  animais$: Observable<Animal[]>;
   producaoForm: FormGroup;
   pageTitle = '...';
   producaoId: string = undefined;
 
-  constructor(private fb: FormBuilder, private producoesService: ProducoesService, private navCtrl: NavController, private overlayService: OverlayService, private route: ActivatedRoute) { }
+  constructor(private fb: FormBuilder, private producoesService: ProducoesService, private navCtrl: NavController, private overlayService: OverlayService, private route: ActivatedRoute, private registrosService: RegistrosService, private animaisService: AnimaisService) { }
 
-  ngOnInit() {
+  async ngOnInit(): Promise<void> {
     this.createForm();
+
+    const loading = await this.overlayService.loading();
+    this.registros$ = this.registrosService.getAll();
+    this.registros$.pipe(take(1));
+
+    this.animais$ = this.animaisService.getAll();
+    this.animais$.pipe(take(1)).subscribe(animais => loading.dismiss());
+
     this.init();
   }
 

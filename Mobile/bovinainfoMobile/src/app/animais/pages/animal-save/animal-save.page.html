@@ -67,6 +67,30 @@
       <ion-input placeholder="Informe a matrícula" formControlName="matricula"></ion-input>
     </ion-item>
 
+    <ion-list *ngIf="(patrimonios$ | async) as patrimonios" id="inputs">
+      <ng-container *ngIf="patrimonios.length > 0; else noPatrimonios">
+        <ion-item>
+          <ion-label position="floating">Fazenda</ion-label>
+          <ion-select placeholder="Selecione a fazenda" name="fazenda" formControlName="fazenda">
+            <ion-select-option *ngFor="let patrimonio of patrimonios">{{
+              patrimonio.nomeFazenda }}
+            </ion-select-option>
+          </ion-select>
+        </ion-item>
+      </ng-container>
+      <ng-template #noPatrimonios>
+        <ion-item>
+          <ion-label position="floating">Fazenda</ion-label>
+          <ion-select placeholder="Selecione a fazenda"></ion-select>
+        </ion-item>
+        <ion-item>
+          <ion-button color="success" fill="outline" routerLink="/patrimonios/create/animal" routerDirection="forward">
+            Cadastrar
+          </ion-button>
+        </ion-item>
+      </ng-template>
+    </ion-list>
+
     <ion-item id="inputs">
       <ion-label position="floating">Origem</ion-label>
       <ion-select placeholder="Selecione a origem" formControlName="origem" >

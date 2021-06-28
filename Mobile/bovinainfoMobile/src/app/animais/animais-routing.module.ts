@@ -8,6 +8,10 @@ const routes: Routes = [
     canActivateChild: [AuthGuard],
     children: [
       {
+        path: 'create/:id',
+        loadChildren: () => import('./pages/animal-save/animal-save.module').then(m => m.AnimalSavePageModule)
+      },
+      {
         path: 'create',
         loadChildren: () => import('./pages/animal-save/animal-save.module').then(m => m.AnimalSavePageModule)
       },

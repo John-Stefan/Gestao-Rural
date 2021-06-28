@@ -31,7 +31,7 @@ export class PessoaSavePage implements OnInit {
 
   init(): void {
     const pessoaId = this.route.snapshot.paramMap.get('id');
-    if (!pessoaId || pessoaId === 'patrimonio') {
+    if (!pessoaId || pessoaId === 'patrimonio' || pessoaId === 'registro') {
       this.pageTitle = 'Cadastro de Pessoa';
       return;
     }
@@ -78,7 +78,11 @@ export class PessoaSavePage implements OnInit {
       });
       if (pessoaId === 'patrimonio') {
         this.navCtrl.navigateBack('/patrimonios/create');
-      } else {
+      }
+      else if (pessoaId === 'registro') {
+        this.navCtrl.navigateBack('/registros/create');
+      }
+      else {
         this.navCtrl.navigateBack('/pessoas');
       }
     } catch (error) {

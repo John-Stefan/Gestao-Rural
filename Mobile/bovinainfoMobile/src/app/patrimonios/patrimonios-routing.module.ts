@@ -8,6 +8,10 @@ const routes: Routes = [
     canActivateChild: [AuthGuard],
     children: [
       {
+        path: 'create/:id',
+        loadChildren: () => import('./pages/patrimonio-save/patrimonio-save.module').then(m => m.PatrimonioSavePageModule)
+      },
+      {
         path: 'create',
         loadChildren: () => import('./pages/patrimonio-save/patrimonio-save.module').then(m => m.PatrimonioSavePageModule)
       },

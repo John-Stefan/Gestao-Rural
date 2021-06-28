@@ -4,8 +4,11 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { NavController } from '@ionic/angular';
+import { Observable } from 'rxjs';
 import { take } from 'rxjs/operators';
 import { OverlayService } from 'src/app/core/services/overlay.service';
+import { Pessoa } from 'src/app/pessoas/models/pessoa.model';
+import { PessoasService } from 'src/app/pessoas/services/pessoas.service';
 import { RegistrosService } from '../../services/registros.service';
 
 @Component({
@@ -14,22 +17,28 @@ import { RegistrosService } from '../../services/registros.service';
   styleUrls: ['./registro-save.page.scss'],
 })
 export class RegistroSavePage implements OnInit {
+  pessoas$: Observable<Pessoa[]>;
   registroForm: FormGroup;
   pageTitle = '...';
   registroId: string = undefined;
 
   constructor(
-    private fb: FormBuilder, private registrosService: RegistrosService, private navCtrl: NavController, private overlayService: OverlayService, private route: ActivatedRoute
+    private fb: FormBuilder, private registrosService: RegistrosService, private navCtrl: NavController, private pessoasService: PessoasService, private overlayService: OverlayService, private route: ActivatedRoute
   ) { }
 
-  ngOnInit() {
+  async ngOnInit(): Promise<void> {
     this.createForm();
+
+    const loading = await this.overlayService.loading();
+    this.pessoas$ = this.pessoasService.getAll();
+    this.pessoas$.pipe(take(1)).subscribe(patrimonios => loading.dismiss());
+
     this.init();
   }
 
   init(): void {
     const registroId = this.route.snapshot.paramMap.get('id');
-    if (!registroId) {
+    if (!registroId || registroId === 'producao') {
       this.pageTitle = 'Inserção de Registro';
       return;
     }
@@ -37,11 +46,11 @@ export class RegistroSavePage implements OnInit {
     this.pageTitle = 'Emissão de Registro';
     this.registrosService.get(registroId)
       .pipe(take(1))
-      .subscribe(({ temperatura, umidade, dataProducao, pessoa }) => {
+      .subscribe(({ temperatura, umidade, dataProducao, funcionario }) => {
         this.registroForm.get('temperatura').setValue(temperatura);
         this.registroForm.get('umidade').setValue(umidade);
         this.registroForm.get('dataProducao').setValue(dataProducao);
-        this.registroForm.get('pessoa').setValue(pessoa);
+        this.registroForm.get('funcionario').setValue(funcionario);
       });
   }
 
@@ -50,11 +59,12 @@ export class RegistroSavePage implements OnInit {
       temperatura: ['', [Validators.required]],
       umidade: ['', [Validators.required]],
       dataProducao: ['', [Validators.required]],
-      pessoa: ['', [Validators.required]]
+      funcionario: ['', [Validators.required]]
     });
   }
 
   async onSubmit(): Promise<void> {
+    const registroId = this.route.snapshot.paramMap.get('id');
     const loading = await this.overlayService.loading({
       message: 'Salvando...'
     });
@@ -63,7 +73,12 @@ export class RegistroSavePage implements OnInit {
         id: this.registroId,
         ...this.registroForm.value
       });
-      this.navCtrl.navigateBack('/registros');
+      if (registroId === 'producao') {
+        this.navCtrl.navigateBack('/producoes/create');
+      }
+      else {
+        this.navCtrl.navigateBack('/registros');
+      }
     } catch (error) {
       console.log('Erro ao salvar o registro: ', error);
       await this.overlayService.toast({

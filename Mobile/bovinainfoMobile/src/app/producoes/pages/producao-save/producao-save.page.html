@@ -10,10 +10,29 @@
 
 <ion-content>
   <form [formGroup]="producaoForm">
-    <ion-item id="labelName">
-      <ion-label position="floating">Registro</ion-label>
-      <ion-input placeholder="Digite o registro" formControlName="registro"></ion-input>
-    </ion-item>
+    <ion-list *ngIf="(registros$ | async) as registros" id="labelName">
+      <ng-container *ngIf="registros.length > 0; else noRegistros">
+        <ion-item>
+          <ion-label position="floating">Registro</ion-label>
+          <ion-select placeholder="Selecione o registro" name="registro" formControlName="registro">
+            <ion-select-option *ngFor="let registro of registros">{{
+              registro.dataProducao }}
+            </ion-select-option>
+          </ion-select>
+        </ion-item>
+      </ng-container>
+      <ng-template #noRegistros>
+        <ion-item>
+          <ion-label position="floating">Registro</ion-label>
+          <ion-select placeholder="Selecione o registro"></ion-select>
+        </ion-item>
+        <ion-item>
+          <ion-button color="success" fill="outline" routerLink="/registros/create/producao" routerDirection="forward">
+            Cadastrar
+          </ion-button>
+        </ion-item>
+      </ng-template>
+    </ion-list>
     <ion-item id="inputs">
       <ion-label position="floating">Inicio da produção</ion-label>
       <ion-input placeholder="Digite a data do inicio da produção" formControlName="dataInicioProducao"></ion-input>
@@ -22,10 +41,29 @@
       <ion-label position="floating">Fim da produção</ion-label>
       <ion-input placeholder="Digite a data do fim da produção" formControlName="dataFimProducao"></ion-input>
     </ion-item>
-    <ion-item id="inputs">
-      <ion-label position="floating">Animal</ion-label>
-      <ion-input placeholder="Digite o id do animal" formControlName="animal"></ion-input>
-    </ion-item>
+    <ion-list *ngIf="(animais$ | async) as animais" id="inputs">
+      <ng-container *ngIf="animais.length > 0; else noAnimais">
+        <ion-item>
+          <ion-label position="floating">Animal</ion-label>
+          <ion-select placeholder="Selecione o animal" name="animal" formControlName="animal">
+            <ion-select-option *ngFor="let animal of animais">{{
+              animal.matricula }}
+            </ion-select-option>
+          </ion-select>
+        </ion-item>
+      </ng-container>
+      <ng-template #noAnimais>
+        <ion-item>
+          <ion-label position="floating">Animal</ion-label>
+          <ion-select placeholder="Selecione o animal"></ion-select>
+        </ion-item>
+        <ion-item>
+          <ion-button color="success" fill="outline" routerLink="/animais/create/producao" routerDirection="forward">
+            Cadastrar
+          </ion-button>
+        </ion-item>
+      </ng-template>
+    </ion-list>
     <ion-item id="inputs">
       <ion-label position="floating">Quantidade de leite</ion-label>
       <ion-input placeholder="Digite a quantidade de leite" formControlName="quantidadeLeite"></ion-input>

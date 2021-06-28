@@ -8,6 +8,10 @@ const routes: Routes = [
     canActivateChild: [AuthGuard],
     children: [
       {
+        path: 'create/:id',
+        loadChildren: () => import('./pages/registro-save/registro-save.module').then(m => m.RegistroSavePageModule)
+      },
+      {
         path: 'create',
         loadChildren: () => import('./pages/registro-save/registro-save.module').then(m => m.RegistroSavePageModule)
       },
