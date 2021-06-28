@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar color="success">
+    <app-menu-toggle slot="start" menu="main-menu"></app-menu-toggle>
+    <ion-title>Funcionarios</ion-title>
+    <app-logout-button slot="end" menu="main-menu"></app-logout-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-list *ngIf="(funcionarios$ | async) as funcionarios">
+    <ng-container *ngIf="funcionarios.length > 0; else noFuncionarios">
+      <app-funcionario-item *ngFor="let funcionario of funcionarios" [funcionario]="funcionario" (delete)="onDelete($event)"></app-funcionario-item>
+    </ng-container>
+    <ng-template #noFuncionarios>
+      <ion-item lines="none">Ainda não existem pessoas cadastradas...</ion-item>
+    </ng-template>
+  </ion-list>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button color="success" routerLink="/pessoas/create" routerDirection="forward">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

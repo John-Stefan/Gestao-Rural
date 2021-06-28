@@ -1,3 +1,4 @@
+/* eslint-disable no-trailing-spaces */
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './core/guards/auth.guard';
@@ -31,7 +32,7 @@ const routes: Routes = [
     path: 'animais',
     loadChildren: () => import('./animais/animais.module').then(m => m.AnimaisModule),
     canLoad: [AuthGuard]
-  }, 
+  },
   {
     path: 'registros',
     loadChildren: () => import('./registros/registros.module').then(m => m.RegistrosModule),
@@ -41,7 +42,13 @@ const routes: Routes = [
     path: 'producoes',
     loadChildren: () => import('./producoes/producoes.module').then(m => m.ProducoesModule),
     canLoad: [AuthGuard]
-  }  
+  },
+  {
+    path: 'funcionarios',
+    loadChildren: () => import('./funcionarios/funcionarios.module').then( m => m.FuncionariosModule),
+    canLoad: [AuthGuard]
+  }
+
 ];
 
 @NgModule({
