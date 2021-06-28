@@ -1,0 +1,57 @@
+<ion-header>
+  <ion-toolbar color="success">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/pessoas"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{ pageTitle }}</ion-title>
+    <app-logout-button slot="end" menu="main-menu"></app-logout-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item id="labelName">
+    <ion-label position="floating">Nome</ion-label>
+    <ion-input placeholder="Digite seu nome" [(ngModel)]="funcionario.nome"></ion-input>
+  </ion-item>
+  <ion-item id="inputs">
+    <ion-label position="floating">CPF</ion-label>
+    <ion-input placeholder="Digite seu CPF" [(ngModel)]="funcionario.cpf"></ion-input>
+  </ion-item>
+  <ion-item id="inputs">
+    <ion-label position="floating">Data de Nascimento</ion-label>
+    <ion-input placeholder="Digite sua Data de Nascimento" [(ngModel)]="funcionario.data_nascimento"></ion-input>
+  </ion-item>
+  <ion-item id="inputs">
+    <ion-label position="floating">E-Mail</ion-label>
+    <ion-input placeholder="Digite seu E-Mail" [(ngModel)]="funcionario.email"></ion-input>
+  </ion-item>
+  <ion-item id="inputs">
+    <ion-label position="floating">Telefone</ion-label>
+    <ion-input placeholder="Digite seu Telefone" [(ngModel)]="funcionario.telefone"></ion-input>
+  </ion-item>
+  <ion-item id="inputs">
+    <ion-label position="floating">CEP</ion-label>
+    <ion-input placeholder="Digite seu CEP" [(ngModel)]="funcionario.endereco.cep"></ion-input>
+  </ion-item>
+  <ion-item id="inputs">
+    <ion-label position="floating">Logradouro</ion-label>
+    <ion-input placeholder="Digite seu logradouro" [(ngModel)]="funcionario.endereco.logradouro"></ion-input>
+  </ion-item>
+  <ion-item id="inputs">
+    <ion-label position="floating">Complemento</ion-label>
+    <ion-input placeholder="Digite seu complemento" [(ngModel)]="funcionario.endereco.complemento"></ion-input>
+  </ion-item>
+  <ion-item id="inputs">
+    <ion-label position="floating">Numero</ion-label>
+    <ion-input placeholder="Digite seu numero" [(ngModel)]="funcionario.endereco.numero"></ion-input>
+  </ion-item>
+</ion-content>
+
+<div id="button">
+  <ion-button color="success" expand="block" (click)="setPessoa()">
+    Salvar
+  </ion-button>
+  <ion-button color="danger" expand="block" (click)="apagarFormulario()">
+    Limpar
+  </ion-button>
+</div>
