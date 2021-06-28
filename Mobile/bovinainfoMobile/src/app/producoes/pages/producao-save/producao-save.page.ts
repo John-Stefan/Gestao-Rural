@@ -5,7 +5,10 @@ import { ActivatedRoute } from '@angular/router';
 import { NavController } from '@ionic/angular';
 import { take } from 'rxjs/operators';
 import { OverlayService } from 'src/app/core/services/overlay.service';
+import { Animal } from 'src/app/animais/models/animal.model';
+import { AnimaisService } from 'src/app/animais/services/animais.service';
 import { ProducoesService } from '../../services/producoes.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-producao-save',
@@ -13,14 +16,20 @@ import { ProducoesService } from '../../services/producoes.service';
   styleUrls: ['./producao-save.page.scss'],
 })
 export class ProducaoSavePage implements OnInit {
+  animais$: Observable<Animal[]>;
   producaoForm: FormGroup;
   pageTitle = '...';
   producaoId: string = undefined;
 
-  constructor(private fb: FormBuilder, private producoesService: ProducoesService, private navCtrl: NavController, private overlayService: OverlayService, private route: ActivatedRoute) { }
+  constructor(private fb: FormBuilder, private producoesService: ProducoesService, private animaisService: AnimaisService, private navCtrl: NavController, private overlayService: OverlayService, private route: ActivatedRoute) { }
 
-  ngOnInit() {
+  async ngOnInit() {
     this.createForm();
+
+    const loading = await this.overlayService.loading();
+    this.animais$ = this.animaisService.getAll();
+    this.animais$.pipe(take(1)).subscribe(producoes => loading.dismiss());
+
     this.init();
   }
 
@@ -34,11 +43,11 @@ export class ProducaoSavePage implements OnInit {
     this.pageTitle = 'Emissão de Produção';
     this.producoesService.get(producaoId)
       .pipe(take(1))
-      .subscribe(({ dataInicioProducao, dataFimProducao, registro, animal, quantidadeLeite, peso, notaAnimal }) => {
+      .subscribe(({ dataInicioProducao, dataFimProducao, registro, animalReg, quantidadeLeite, peso, notaAnimal }) => {
         this.producaoForm.get('dataInicioProducao').setValue(dataInicioProducao);
         this.producaoForm.get('dataFimProducao').setValue(dataFimProducao);
         this.producaoForm.get('registro').setValue(registro);
-        this.producaoForm.get('animal').setValue(animal);
+        this.producaoForm.get('animalReg').setValue(animalReg);
         this.producaoForm.get('quantidadeLeite').setValue(quantidadeLeite);
         this.producaoForm.get('peso').setValue(peso);
         this.producaoForm.get('notaAnimal').setValue(notaAnimal);
@@ -50,7 +59,7 @@ export class ProducaoSavePage implements OnInit {
       dataInicioProducao: ['', [Validators.required]],
       dataFimProducao: ['', [Validators.required]],
       registro: ['', [Validators.required]],
-      animal: ['', [Validators.required]],
+      //animalReg: ['', [Validators.required]],
       quantidadeLeite: ['', [Validators.required]],
       peso: ['', [Validators.required]],
       notaAnimal: ['', [Validators.required]]

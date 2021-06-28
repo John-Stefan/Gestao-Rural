@@ -1,7 +1,7 @@
 <ion-header>
   <ion-toolbar color="success">
     <ion-buttons slot="start">
-      <ion-back-button defaultHref="/registros"></ion-back-button>
+      <ion-back-button defaultHref="/pessoas"></ion-back-button>
     </ion-buttons>
     <ion-title>{{ pageTitle }}</ion-title>
     <app-logout-button slot="end" menu="main-menu"></app-logout-button>
@@ -10,10 +10,31 @@
 
 <ion-content>
   <form [formGroup]="registroForm">
-    <ion-item id="labelName">
-      <ion-label position="floating">Pessoa</ion-label>
-      <ion-input placeholder="Digite a Pessoa" formControlName="pessoa"></ion-input>
-    </ion-item>
+    <ion-list *ngIf="(pessoas$ | async) as pessoas" id="inputs">
+      <ng-container *ngIf="pessoas.length > 0; else noPessoas">
+        <ion-item>
+          <ion-label position="floating">Pessoa</ion-label>
+          <ion-select placeholder="Selecione a pessoa">
+            <ion-select placeholder="Selecione o registro" name="registro" formControlName="registro">
+              <ion-select-option *ngFor="let pessoa of pessoas">{{
+                pessoa.nome }}
+              </ion-select-option>
+            </ion-select>
+          </ion-select>
+        </ion-item>
+      </ng-container>
+      <ng-template #noPessoas>
+        <ion-item>
+          <ion-label position="floating">Pessoa</ion-label>
+          <ion-select placeholder="Selecione a pessoa"></ion-select>
+        </ion-item>
+        <ion-item>
+          <ion-button color="success" fill="outline" routerLink="/pessoas/create/registro" routerDirection="forward">
+            Cadastrar
+          </ion-button>
+        </ion-item>
+      </ng-template>
+	  </ion-list>
     <ion-item id="inputs">
       <ion-label position="floating">Temperatura</ion-label>
       <ion-input placeholder="Digite a Temperatura" formControlName="temperatura"></ion-input>

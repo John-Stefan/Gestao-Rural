@@ -5,6 +5,8 @@ import { take } from 'rxjs/operators';
 import { OverlayService } from 'src/app/core/services/overlay.service';
 import { Registro } from '../../models/registro.model';
 import { RegistrosService } from '../../services/registros.service';
+import { Pessoa } from 'src/app/pessoas/models/pessoa.model';
+import { PessoasService } from 'src/app/pessoas/services/pessoas.service';
 
 @Component({
   selector: 'app-registros-list',
@@ -12,10 +14,10 @@ import { RegistrosService } from '../../services/registros.service';
   styleUrls: ['./registros-list.page.scss'],
 })
 export class RegistrosListPage {
-
+  pessoas$: Observable<Pessoa[]>;
   registros$: Observable<Registro[]>;
 
-  constructor(private navCtrl: NavController, private overlayService: OverlayService, private registrosService: RegistrosService) { }
+  constructor(private navCtrl: NavController, private overlayService: OverlayService, private pessoasService: PessoasService,private registrosService: RegistrosService) { }
 
   async ionViewDidEnter(): Promise<void> {
     const loading = await this.overlayService.loading();
